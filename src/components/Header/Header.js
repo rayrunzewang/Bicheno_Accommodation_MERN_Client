@@ -9,13 +9,13 @@ import styles from "./Header.css";
 const Header = () => {
     return (
         <div>
-            
-            <header className="page-header">
 
+            {/* header */}
+            <header className="page-header">
                 <div className="logo">
                     <img className="nav-logo" src={logo} alt="Bicheno Accommodation Business Logo" />
                 </div>
-
+                {/* nav */}
                 <nav>
                     <ul className="user-container">
                         <li><NavLink className="nav-link" to="/">Home</NavLink></li>
@@ -32,7 +32,7 @@ const Header = () => {
 
             </header>
 
-
+            {/* route */}
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/blog" element={<Blog />} />
