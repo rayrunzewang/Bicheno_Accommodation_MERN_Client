@@ -18,7 +18,7 @@ function Home() {
 
             {/* Social Media */}
 
-            <div class="social-media" >
+            <div className="social-media" >
                 <a
                     target="_blank"
                     href="https://www.facebook.com/bichenoaccommodation">
@@ -34,15 +34,15 @@ function Home() {
 
             {/* Scroll Down Button */}
             <div>
-                <a href="#scroll" class="scroll-down">
-                    <div class="scroll-down-button">
-                        <p class="scroll-down-detail" >
+                <a href="#scroll" className="scroll-down">
+                    <div className="scroll-down-button">
+                        <p className="scroll-down-detail" >
                             Scroll
                         </p>
-                        <p class="scroll-down-detail" >
+                        <p className="scroll-down-detail" >
                             Down
                         </p>
-                        <div class="scroll-down-arrow">
+                        <div className="scroll-down-arrow">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -53,31 +53,16 @@ function Home() {
 
             {/* Banner  */}
 
-            <div class="banner">
-                <h1 class="banner-title">
+            <div className="banner">
+                <h1 className="banner-title">
                     <em>
-                        <span class="banner-bicheno">BICHENO</span>
-                        <span class="banner-accommodation">ACCOMMODATION</span>
+                        <span className="banner-bicheno">BICHENO</span>
+                        <span className="banner-accommodation">ACCOMMODATION</span>
                     </em>
                 </h1>
             </div>
 
-            {/* scroll down */}
-            <a href="#scroll" class="scroll-down">
-                <div class="scroll-down-button">
-                    <p class="scroll-down-detail" >
-                        Scroll
-                    </p>
-                    <p class="scroll-down-detail" >
-                        Down
-                    </p>
-                    <div class="scroll-down-arrow">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </a>
+
 
 
         </div>

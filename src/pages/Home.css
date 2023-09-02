@@ -62,7 +62,6 @@
     transition: 0.5s;
 }
 
-
 /* social-media */
 .social-media {
     position: absolute;
@@ -70,43 +69,81 @@
     top: 150px;
 }
 
-.my-facebook-icon, .my-instagram-icon {
-    margin-right: 10px;
-    color: var(--primary-color);
-    transition: 0.5s;
+.my-facebook-icon,
+.my-instagram-icon {
+    margin-right: 5px;
+    color: #fff;
+    transition: all 0.5s;
     animation: shake 2s;
     animation-iteration-count: infinite;
-    background: white;
     border-radius: 12px;
 }
 
 
 @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    2.5% { transform: translate(-1px, -2px) rotate(-1deg); }
-    5% { transform: translate(-3px, 0px) rotate(1deg); }
-    7.5% { transform: translate(3px, 2px) rotate(0deg); }
-    10% { transform: translate(1px, -1px) rotate(1deg); }
-    12.5% { transform: translate(-1px, 2px) rotate(-1deg); }
-    15% { transform: translate(-3px, 1px) rotate(0deg); }
-    17.5% { transform: translate(3px, 1px) rotate(-1deg); }
-    20% { transform: translate(-1px, -1px) rotate(1deg); }
-    22.5% { transform: translate(1px, 2px) rotate(0deg); }
-    25% { transform: translate(1px, -2px) rotate(-1deg); }
-    30% { transform: translate(0px, 0px) rotate(0deg); }
-    0% { transform: translate(0px, 0px) rotate(0deg); }
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
     }
-    
-    .social-media i:hover{
-        color:var(--dark-blue);
-        scale: 1.2;
+
+    2.5% {
+        transform: translate(-1px, -2px) rotate(-1deg);
     }
+
+    5% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    7.5% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    12.5% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    15% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    17.5% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    22.5% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+
+    30% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+}
+
+.my-facebook-icon:hover,
+.my-instagram-icon:hover {
+    color: var(--dark-blue);
+}
 
 /* Scroll Down Button  */
 .scroll-down-button {
     position: absolute;
     bottom: 50px;
-    left: 10%;
+    left: 5%;
     z-index: 0;
 }
 

@@ -50,11 +50,11 @@ nav {
 }
 
 .page-header nav .user-container li .nav-link:hover {
-  color: rgba(209, 208, 210);
+  color: var(--light-grey);
   text-decoration: underline;
 }
 .page-header nav .user-container li .nav-link.active {
-  color: rgb(209, 208, 210);
-  text-decoration: underline 2px rgb(209, 208, 210);
+  color: var(--light-grey);
+  text-decoration: underline 2px var(--light-grey);
 }
 
