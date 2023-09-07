@@ -1,0 +1,24 @@
+.contact-edit {
+    margin: 50px auto;
+    border: 1px black solid;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contact-edit input {
+    width: 300px;
+}
+
+.contact-edit-container {
+    line-height: 40px;
+
+}
+
+
+
+.contact-edit-button {
+    display: block;
+    margin: 10px auto 0px;
+}
+

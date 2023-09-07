@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
-import { Routes, Route, Navigate } from "react-router-dom"
+import { Routes, } from "react-router-dom";
 
 
 const Footer = () => {
+    const [contact, setContact] = useState({});
+
+    useEffect(() => {
+        GetContact();
+    }, [])
+
+    const GetContact = () => {
+        fetch("http://localhost:3001/contact", { credentials: "include" })
+            .then(res => res.json())
+            .then(data => setContact(data))
+            .catch(err => console.error("Error", err))
+    }
+
+    function formatPhoneNumber(number) {
+        const trimmedNumber = number.replace(/^0+/, '');
+        const formatedNumber = '61' + trimmedNumber;
+        return formatedNumber;
+    }
+
+
     return (
         <>
             <footer>
@@ -12,10 +32,10 @@ const Footer = () => {
                     <div className="column">
                         <address>
                             <h4>Contact</h4>
-                            <p>Call: <a href="tel:+61363751400">03 6375 1400</a></p>
-                            <p>Call: <a href="tel:+61403331845">04 0333 1845</a></p>
-                            <p>Email: accommodation@bicheno.com.au</p>
-                            <p>Address: 73b Burgess St, Bicheno TAS 7215</p>
+                            <p>Phone: <a href="tel:{formatPhoneNumber(contact.phoneNumber)}">{contact.phoneNumber}</a></p>
+                            <p>Phone: <a href="tel:{formatPhoneNumber(contact.alternativePhoneNumber)}">{contact.alternativePhoneNumber}</a></p>
+                            <p>Email: {contact.email}</p>
+                            <p>Address: {contact.address}</p>
                         </address>
                     </div>
                     <div className="column">

@@ -1,9 +1,16 @@
 import React from 'react';
 import "./Dashboard.css";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useUser } from "../../UserContext";
 import { useNavigate } from "react-router-dom";
+import DashNav from './DashNav/DashNav';
+import ContactEdit from './DashNav/ContactEdit/ContactEdit';
+import AccountEdit from './DashNav/AccountEdit/AccountEdit.js';
+import HomepageEdit from './DashNav/HomepageEdit/HomepageEdit';
+import BlogEdit from './DashNav/BlogEdit/BlogEdit';
+import PropertiesEdit from './DashNav/PropertiesEdit/PropertiesEdit';
 
 const API_BASE = "http://localhost:3001";
 
@@ -37,21 +44,20 @@ const Dashboard = () => {
   return (
     <>
       <div className='dashboard'>
-
-      <button className="logout-btn" onClick={handleLogout}>LOGOUT</button>
-
-        <h2 className='dashboard-title'>Dashbord</h2>
-        <div className='dashboard-container'>
-          <Link className='dashboard-item'>Account</Link>
-          <Link className='dashboard-item'>Contact</Link>
-          <Link className='dashboard-item'>Homepage</Link>
-          <Link className='dashboard-item'>Blog</Link>
-          <Link className='dashboard-item'>Properties</Link>
-
-        </div>
+        <button className="logout-btn" onClick={handleLogout}>LOGOUT</button>
+      <DashNav />
 
       </div>
+      <div>
+        <Routes>
+          <Route path='/contactedit' element={<ContactEdit />} ></Route>
+          <Route path='/accountedit' element={<AccountEdit />} ></Route>
+          <Route path='/homepageedit' element={<HomepageEdit />} ></Route>
+          <Route path='/blogedit' element={<BlogEdit />} ></Route>
+          <Route path='/propertiesedit' element={<PropertiesEdit />} ></Route>
+        </Routes>
 
+      </div>
     </>
   )
 }

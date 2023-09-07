@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const PrivateHeader = () => {
     return (
-        <>
+
             <header className='private-header'>
                 <div className='private-header-home-link-container'>
                     <Link className='private-header-home-link' to="/">Back to HomePage</Link>
@@ -12,8 +12,10 @@ const PrivateHeader = () => {
                 <div>
                     <h1 className='private-header-title'>Bicheno Accommodation Property Management System</h1>
                 </div>
+   
+
             </header>
-        </>
+
     )
 }
 
