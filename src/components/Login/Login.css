@@ -1,0 +1,29 @@
+
+.login {
+    color: rgb(95, 166, 194);
+    margin: 200px auto 0;
+    text-align: center;
+    border: 1px solid rgb(95, 166, 194);
+    border-radius: 10px;
+    width: fit-content;
+    padding: 20px;
+    background-color:  #fff;
+    box-shadow: 5px 5px 5px rgb(95, 166, 194);
+  }
+
+  .login div {
+    margin-top: 5px;
+  }
+
+  .login-button {
+    color: #fff;
+    background: rgb(95, 166, 194);
+  }
+
+  .login-button:hover {
+    background-color: #5583b4; /* 按钮背景颜色在悬停时变化 */
+  }
+
+  .login-button:active {
+    transform: translate(1px, 2px);
+  }
