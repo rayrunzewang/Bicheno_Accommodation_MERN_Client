@@ -19,7 +19,6 @@ footer {
     margin-bottom: 10px;
 }
 
-
 .footer-container a:hover {
     text-decoration: underline;
 }
@@ -27,10 +26,8 @@ footer {
 
 .column {
     flex: 1;
-    /* 列自动平均分配宽度 */
     padding: 10px;
     margin: 0 5px;
-    /* 列之间的间隔 */
 }
 
 .column address {

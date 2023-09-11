@@ -1,5 +1,5 @@
 import React from 'react'
-import "./PrivateHeader.css"
+import './PrivateHeader.css'
 import { Link } from 'react-router-dom'
 
 const PrivateHeader = () => {
@@ -7,7 +7,7 @@ const PrivateHeader = () => {
 
             <header className='private-header'>
                 <div className='private-header-home-link-container'>
-                    <Link className='private-header-home-link' to="/">Back to HomePage</Link>
+                    <Link className='private-header-home-link' to='/'>Back to HomePage</Link>
                 </div>
                 <div>
                     <h1 className='private-header-title'>Bicheno Accommodation Property Management System</h1>

@@ -6,9 +6,9 @@ import PrivateLayout from './components/Layout/PrivateLayout';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<PublicLayout />} />
-      <Route path="/public/*" element={<PublicLayout />} />
-      <Route path="/private/*" element={<PrivateLayout />} />
+      <Route path='/' element={<PublicLayout />} />
+      <Route path='/public/*' element={<PublicLayout />} />
+      <Route path='/private/*' element={<PrivateLayout />} />
     </Routes>
   );
 }

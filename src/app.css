@@ -1,5 +1,5 @@
 :root {
-    --primary-color: rgba(58, 129, 179);
+    --primary-color: rgb(58, 129, 179);
     --dark-color:#212529;
     --dark-blue:rgb(11, 52, 73);
     --light-blue:rgb(58, 129, 179);
@@ -7,8 +7,10 @@
     --grey:rgb(209, 208, 210);
     --light-grey:rgb(250, 250, 250);
     --text-color:rgb(70, 70, 70);
-
+    --sucess-message:green;
+    --fail-message:red;
+    
     --font-size-small:18px ;
-    --font-size-normal: ;
-    --font-size-large: ;
+    --font-size-normal: 30px;
+    --font-size-large: 40px;
   }

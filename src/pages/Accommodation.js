@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
-function Home() {
+function Accommodation() {
     return(
 
         <h2>Accommodation</h2>
     )
 }
 
-export default Home;
+export default Accommodation;

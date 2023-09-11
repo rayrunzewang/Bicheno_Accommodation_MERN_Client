@@ -1,0 +1,39 @@
+.blog-detail-page {
+    margin: 100px auto;
+    width: 80%;
+}
+
+.back-button {
+    margin: 10px 0;
+    display: block;
+    color: #fff;
+    background: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.blog-detail-container {
+    width: 80%;
+    margin: 10px auto;
+    border: 1px solid var(--light-grey);
+    padding: 20px;
+    text-align: center;
+}
+
+.blog-detail-title {
+    text-align: center;
+    font-size: var(--font-size-large);
+    margin: 10px 0;
+}
+
+.blog-detail-author {
+    text-align: left;
+    margin: 10px 0;
+}
+
+.blog-detail-content {
+    text-align: left;
+    font-size: 24px;
+    margin: 10px 0;
+}
