@@ -8,7 +8,7 @@ import ContactEdit from './DashNav/ContactEdit/ContactEdit';
 import AccountEdit from './DashNav/AccountEdit/AccountEdit.js';
 import HomepageEdit from './DashNav/HomepageEdit/HomepageEdit';
 import BlogEdit from './DashNav/BlogEdit/BlogEdit';
-import PropertiesEdit from './DashNav/PropertiesEdit/PropertiesEdit';
+import PropertyEdit from './DashNav/PropertyEdit/PropertyEdit';
 
 const API_BASE = 'http://localhost:3001';
 
@@ -52,7 +52,7 @@ const Dashboard = () => {
           <Route path='/accountedit' element={<AccountEdit />} ></Route>
           <Route path='/homepageedit' element={<HomepageEdit />} ></Route>
           <Route path='/blogedit/*' element={<BlogEdit />} ></Route>
-          <Route path='/propertiesedit' element={<PropertiesEdit />} ></Route>
+          <Route path='/propertyedit/*' element={<PropertyEdit />} ></Route>
         </Routes>
 
       </div>

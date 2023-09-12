@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Button from '../BlogEdit/Button/Button';
-import './PropertiesEdit.css';
+import Button from '../../../Button/Button';
+import './PropertyCreate.css';
 
 function PropertiesEdit() {
   const [selectedFiles, setSelectedFiles] = useState([]);

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './BlogEditDetail.css';
 import './BlogCreate.css';
-import Button from './Button/Button';
-import Message from './Message/Message';
+import Button from '../../../Button/Button';
+import Message from '../../../Message/Message';
 
 const BlogEditDetail = (props) => {
 

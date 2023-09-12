@@ -10,7 +10,7 @@ const DashNav = () => {
                 <NavLink className='dashboard-item' to='/private/dashboard/contactedit'>Contact</NavLink>
                 <NavLink className='dashboard-item' to='/private/dashboard/homepageedit'>Homepage</NavLink>
                 <NavLink className='dashboard-item' to='/private/dashboard/blogedit'>Blog</NavLink>
-                <NavLink className='dashboard-item' to='/private/dashboard/propertiesedit'>Properties</NavLink>
+                <NavLink className='dashboard-item' to='/private/dashboard/propertyedit'>Property</NavLink>
             </div>
         </>
     )

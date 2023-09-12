@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Button from './Button/Button';
-import Message from './Message/Message';
+import Button from '../../../Button/Button';
+import Message from '../../../Message/Message';
 
 const BlogCreate = () => {
 

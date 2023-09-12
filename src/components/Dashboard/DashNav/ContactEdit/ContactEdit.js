@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './ContactEdit.css'
-import Button from '../BlogEdit/Button/Button';
-import Message from '../BlogEdit/Message/Message';
+import Button from '../../../Button/Button';
+import Message from '../../../Message/Message';
 
 const ContactEdit = () => {
   const [contact, setContact] = useState([]);
