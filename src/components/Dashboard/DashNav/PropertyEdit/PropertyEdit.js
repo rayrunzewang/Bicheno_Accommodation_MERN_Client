@@ -16,18 +16,18 @@ const PropertyEdit = () => {
 
   return (
     <div>
-      <h1 className='Property-edit-title'>Property Management</h1>
-      <div className='Property-edit-area'>
-        <div className='Property-edit-container'>
+      <h1 className='property-edit-title'>Property Management</h1>
+      <div className='property-edit-area'>
+        <div className='property-edit-container'>
           <h2>Property List</h2>
           <ul>
             {properties.map(property => (
-              <li className='blog-edit-post' key={property._id}>
-                <NavLink className='blog-edit-post-title' to={`/private/dashboard/Propertyedit/propertyeditdetail/${property._id}`}>{property.title}</NavLink>
+              <li className='property-edit-post' key={property._id}>
+                <NavLink className='property-edit-property-title' to={`/private/dashboard/Propertyedit/propertyeditdetail/${property._id}`}>{property.title}</NavLink>
               </li>
             ))}
           </ul>
-          <Link className='Property-edit-create-button' to='/private/dashboard/propertyedit/propertycreate'>Create New Post</Link>
+          <Link className='property-edit-create-button' to='/private/dashboard/propertyedit/propertycreate'>Create New Post</Link>
 
         </div>
         <Routes>
