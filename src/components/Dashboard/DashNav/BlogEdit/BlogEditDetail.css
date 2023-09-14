@@ -1,5 +1,11 @@
 .blog-edit-detail {
     padding: 10px;
+    overflow: auto;
+    width: 70%;
+}
+
+.blog-edit-detail-form textarea {
+    width: 100%;
 }
 
 .submit-post-button {

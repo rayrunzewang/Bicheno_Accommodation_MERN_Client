@@ -1,8 +1,5 @@
 .blog-create {
+    height: 500px;
     padding: 10px;
+    overflow: auto;
 }
-
-
-
-
-

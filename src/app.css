@@ -4,13 +4,13 @@
     --dark-blue:rgb(11, 52, 73);
     --light-blue:rgb(58, 129, 179);
     --logo-green:rgb(49, 159, 165);
-    --grey:rgb(209, 208, 210);
+    --grey:rgb(230, 230, 230);
     --light-grey:rgb(250, 250, 250);
     --text-color:rgb(70, 70, 70);
     --sucess-message:green;
     --fail-message:red;
     
-    --font-size-small:18px ;
+    --font-size-small:18px;
     --font-size-normal: 30px;
     --font-size-large: 40px;
   }

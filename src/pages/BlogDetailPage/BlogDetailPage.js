@@ -15,14 +15,16 @@ const BlogDetailPage = (props) => {
     }, [postId])
 
     return (
-        <div className='blog-detail-page'>
+        <>
             <Link className='back-button' to='/public/blog'>Back To Article List</Link>
-            <div className='blog-detail-container'>
-                <h2 className='blog-detail-title'>{post.title}</h2>
-                <p className='blog-detail-author'>Author:{post.author}</p>
-                <p className='blog-detail-content'>{post.content}</p>
+            <div className='blog-detail-page'>
+                <div className='blog-detail-container'>
+                    <h2 className='blog-detail-title'>{post.title}</h2>
+                    <p className='blog-detail-author'>Author:{post.author}</p>
+                    <p className='blog-detail-content'>{post.content}</p>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

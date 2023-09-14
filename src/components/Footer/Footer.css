@@ -1,8 +1,9 @@
 footer {
     color: #707070;
-    background: var(--light-grey);
+    background: var(--grey);
     width: 100%;
-    border: 1px solid var(--light-grey);
+    border: 1px solid var(--grey);
+    margin-top: 20px;
 }
 
 .footer-container {
@@ -22,7 +23,6 @@ footer {
 .footer-container a:hover {
     text-decoration: underline;
 }
-
 
 .column {
     flex: 1;

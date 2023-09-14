@@ -1,28 +1,28 @@
 .login {
-    color: rgb(95, 166, 194);
-    margin: 200px auto 0;
-    text-align: center;
-    border: 1px solid rgb(95, 166, 194);
-    border-radius: 10px;
-    width: fit-content;
-    padding: 20px;
-    background-color:  #fff;
-    box-shadow: 5px 5px 5px rgb(95, 166, 194);
-  }
+  color: rgb(95, 166, 194);
+  margin: 200px auto 0;
+  text-align: center;
+  border: 1px solid rgb(95, 166, 194);
+  border-radius: 10px;
+  width: fit-content;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 5px 5px 5px rgb(95, 166, 194);
+}
 
-  .login div {
-    margin-top: 5px;
-  }
+.login div {
+  margin-top: 5px;
+}
 
-  .login-button {
-    color: #fff;
-    background: rgb(95, 166, 194);
-  }
+.login-button {
+  color: #fff;
+  background: rgb(95, 166, 194);
+}
 
-  .login-button:hover {
-    background-color: #5583b4; 
-  }
+.login-button:hover {
+  background-color: #5583b4;
+}
 
-  .login-button:active {
-    transform: translate(1px, 2px);
-  }
+.login-button:active {
+  transform: translate(1px, 2px);
+}

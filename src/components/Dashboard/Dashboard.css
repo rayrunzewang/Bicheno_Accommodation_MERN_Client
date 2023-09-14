@@ -32,7 +32,6 @@
     text-align: center; 
     width: 100%;
     border-right: 2px dashed rgb(128, 128, 128);
-    height: 20%;
     display: flex; 
     justify-content: center; 
     align-items: center; 
@@ -45,5 +44,9 @@
 .dashboard-item:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.dashboard-item.active {
+    background: #fff;
 }
 

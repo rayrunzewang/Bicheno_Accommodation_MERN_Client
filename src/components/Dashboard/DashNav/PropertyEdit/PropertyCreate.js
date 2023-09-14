@@ -13,11 +13,11 @@ function PropertiesEdit() {
   const [message, setMessage] = useState('');
   const [imagePreviews, setImagePreviews] = useState([]);
 
-  const handleFileChange = (e) => {
-    const files = Array.from(e.target.files);
-    setSelectedFiles([...selectedFiles, ...files]);
-    previewFiles(files);
-  };
+  // const handleFileChange = (e) => {
+  //   const files = Array.from(e.target.files);
+  //   setSelectedFiles([...selectedFiles, ...files]);
+  //   previewFiles(files);
+  // };
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -61,7 +61,8 @@ function PropertiesEdit() {
     const updatedFiles = [...selectedFiles];
     const updatedPreviews = [...imagePreviews];
 
-    // 交换图片顺序
+    // ------------ swap images *not needed anymore ------------
+
     // const tempFile = updatedFiles[targetIndex];
     // updatedFiles[targetIndex] = updatedFiles[draggedIndex];
     // updatedFiles[draggedIndex] = tempFile;
@@ -73,11 +74,11 @@ function PropertiesEdit() {
     // setSelectedFiles(updatedFiles);
     // setImagePreviews(updatedPreviews);
 
-    // 移除被拖拽的图片
+    // ------------ insert images ------------
+
     const [draggedFile] = updatedFiles.splice(draggedIndex, 1);
     const [draggedPreview] = updatedPreviews.splice(draggedIndex, 1);
 
-    // 插入被拖拽的图片到目标位置
     updatedFiles.splice(targetIndex, 0, draggedFile);
     updatedPreviews.splice(targetIndex, 0, draggedPreview);
 
@@ -131,60 +132,68 @@ function PropertiesEdit() {
 
   return (
     <div className='property-create-container'>
-      <h1>New Property Launch</h1>
-      <div>
+      <form onSubmit={handleUpload}>
+        <h1>New Property Launch</h1>
         <div>
-          <input className='property-title-input' type="text" placeholder="title" value={title} required onChange={(e) => setTitle(e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor="property-create-bed">bed</label>
-          <input className='property-create-bed' type="number" id='property-create-bed' min="1" value={bed} required onChange={(e) => setBed(e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor="property-create-toliet">toliet</label>
-          <input className='property-create-toliet' type="number" id='property-create-toliet' min="0" value={toliet} required onChange={(e) => setToliet(e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor="property-create-carspace">car space</label>
-          <input className='property-create-carspace' type="number" id='property-create-carspace' min="0" value={carspace} required onChange={(e) => setCarSpace(e.target.value)} />
-        </div>
-        <textarea className='property-description' placeholder="description" value={description} name="description" id="description" cols="30" rows="10" required onChange={(e) => setDescription(e.target.value)}></textarea>
-        {/* <div>
+          <div>
+            <input className='property-title-input' type="text" placeholder="Title (required*)" value={title} required onChange={(e) => setTitle(e.target.value)} /> 
+          </div>
+          <div className='property-create-facilities'>
+            <div>
+              <label htmlFor="property-create-bed">bed</label>
+              <input className='property-create-bed' type="number" id='property-create-bed' min="1" value={bed} required onChange={(e) => setBed(e.target.value)} />
+            </div>
+            <div>
+              <label htmlFor="property-create-toliet">toliet</label>
+              <input className='property-create-toliet' type="number" id='property-create-toliet' min="0" value={toliet} required onChange={(e) => setToliet(e.target.value)} />
+            </div>
+            <div>
+              <label htmlFor="property-create-carspace">car space</label>
+              <input className='property-create-carspace' type="number" id='property-create-carspace' min="0" value={carspace} required onChange={(e) => setCarSpace(e.target.value)} />
+            </div>
+          </div>
+          <textarea className='property-description' placeholder="Description (required*)" value={description} name="description" id="description" cols="30" rows="10" required onChange={(e) => setDescription(e.target.value)}></textarea>
+
+          {/* ------------ Upload Button *not needed anymore ------------ */}
+
+          {/* <div>
           <label htmlFor="property-cover-image-upload">choose cover Image</label>
           <input type="file" name='property-images-upload' id='property-cover-image-upload' multiple onChange={handleFileChange} />
         </div>
         <div></div>
         <label htmlFor="property-other-images-upload">choose other Images</label>
         <input type="file" name='property-images-upload' id='property-other-images-upload' multiple onChange={handleFileChange} /> */}
-        <div className='images-upload-area'
-          onDrop={handleDrop}
-          onDragOver={(e) => e.preventDefault()}
-        >
-          <p className='placeholder-text'>Drop images here</p>
-        </div>
-        <p>Sort the images below before uploading, with the cover image placed at the first position.</p>
-        <div className='images-selected-area'>
-          {selectedFiles.map((file, index) => (
-            <div
-              key={index}
-              className='image-div'
-              draggable
-              onDragStart={(e) => handleImageDragStart(e, index)}
-              onDragOver={(e) => e.preventDefault()}
-              onDrop={(e) => handleImageDrop(e, index)}
-            >
-              <img className='images-selected-image' src={imagePreviews[index]} alt={file.name} />
-              <button className='images-selected-image-delete'
-                onClick={() => handleDelete(index)}
+
+          <div className='images-upload-area'
+            onDrop={handleDrop}
+            onDragOver={(e) => e.preventDefault()}
+          >
+            <p className='placeholder-text'>Drop images here</p>
+          </div>
+          <p className='images-selected-area-description'>Sort the images below before uploading, with the cover image placed at the first position.</p>
+          <div className='images-selected-area'>
+            {selectedFiles.map((file, index) => (
+              <div
+                key={index}
+                className='image-div'
+                draggable
+                onDragStart={(e) => handleImageDragStart(e, index)}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => handleImageDrop(e, index)}
               >
-                &times;
-              </button>
-            </div>
-          ))}
+                <img className='images-selected-image' src={imagePreviews[index]} alt={file.name} />
+                <button className='images-selected-image-delete'
+                  onClick={() => handleDelete(index)}
+                >
+                  &times;
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-      <p>{message}</p>
-      <Button onClick={handleUpload} label='Upload' />
+        <p>{message}</p>
+        <Button onClick={handleUpload} label='Upload' />
+      </form>
     </div>
   );
 }

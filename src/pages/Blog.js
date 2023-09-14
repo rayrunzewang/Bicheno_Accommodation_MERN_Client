@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
-import BlogDetailPage from './BlogDetailPage';
+import { Link } from 'react-router-dom';
 import './Blog.css';
 
-function Blog(props) {
+function Blog() {
     const [posts, setPosts] = useState([]);
 
     useState(() => {

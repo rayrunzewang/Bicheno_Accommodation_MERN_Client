@@ -1,21 +1,29 @@
-import React, { useState     } from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom'
-import Home from '../../pages/Home.js'
+import React, { useState } from 'react';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import Home from '../../pages/Home.js';
 import Blog from '../../pages/Blog';
 import Accommodation from '../../pages/Accommodation';
-import logo from '../../assets/logo.jpg'
-import styles from './Header.css';
-import BlogDetailPage from '../../pages/BlogDetailPage.js';
+import logo from '../../assets/logo.jpg';
+import PropertyPage from '../../pages/PropertyPage/PropertyPage';
+import BlogDetailPage from '../../pages/BlogDetailPage/BlogDetailPage';
+import './Header.css'
 
 const Header = () => {
-
     const [posts, setPosts] = useState([]);
+    const [properties, setProperties] = useState([]);
 
     useState(() => {
         fetch('http://localhost:3001/posts')
             .then(res => res.json())
             .then(data => setPosts(data))
             .catch(error => console.error('Blog Posts Fetch Error:', error))
+    }, []);
+
+    useState(() => {
+        fetch('http://localhost:3001/property')
+            .then(res => res.json())
+            .then(data => setProperties(data))
+            .catch(error => console.error('Properties Fetch Error:', error))
     }, []);
     return (
         <div>
@@ -50,6 +58,9 @@ const Header = () => {
                 {posts.map(post => {
                     return <Route key={post._id} path={`/${post._id}`} element={<BlogDetailPage postId={post._id} />} />
                 })}
+                {Array.isArray(properties) && properties.length > 0 && properties.map(property => (
+                    <Route key={property._id} path={`/${property._id}`} element={<PropertyPage property={property} />} />
+                ))}
             </Routes>
 
 

@@ -47,8 +47,11 @@ const BlogCreate = () => {
     }
   };
   return (
-    <div>
+
       <div className='blog-create'>
+
+        {/* ------ Blog Create Form ------ */}
+        
         <form onSubmit={handleSubmit}>
           <div className='blog-create-container'>
             <div>
@@ -86,7 +89,7 @@ const BlogCreate = () => {
             </div>
             <div>
               <textarea
-                rows="20"
+                rows="10"
                 cols="50"
                 type="text"
                 id='content'
@@ -99,11 +102,10 @@ const BlogCreate = () => {
           </div>
           <Button type='submit' label='Save' />
         </form>
-        {isSaved && <Message /> }
+        {isSaved && <Message message='Uploaded successfully . Please click OK to refresh the page. 
+' /> }
         {isError && <Message message='An error occurred' />} 
       </div>
-
-    </div>
   )
 }
 

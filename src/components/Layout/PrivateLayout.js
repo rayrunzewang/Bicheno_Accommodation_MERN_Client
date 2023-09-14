@@ -14,11 +14,11 @@ const PrivateLayout = () => {
         const loginStatus = localStorage.getItem('loginStatus');
         if (loginStatus === 'loggedIn') {
 
-            const currentPath = window.location.pathname; // 获取当前URL路径
+            const currentPath = window.location.pathname; 
             if (currentPath.startsWith('/private/dashboard')) {
-                navigate(currentPath); // 重定向到当前URL
+                navigate(currentPath); 
             } else {
-                navigate('/private/dashboard'); // 重定向到默认目标URL
+                navigate('/private/dashboard'); 
             }
         } else {
             navigate('/private/login');

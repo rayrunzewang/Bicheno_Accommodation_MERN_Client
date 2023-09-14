@@ -55,11 +55,11 @@ const BlogEditDetail = (props) => {
         setIsSaved(true)
         setIsError(false); 
       } else {
-        setIsError(true); // Set error state on failure
+        setIsError(true); 
         console.error('Failed to submit data');
       }
     } catch (error) {
-      setIsError(true); // Set error state on failure
+      setIsError(true); 
       console.error('Error:', error);
     }
   };
@@ -82,7 +82,9 @@ const BlogEditDetail = (props) => {
 
   return (
     <div className='blog-edit-detail'>
-
+      
+      {/* ------ Blog Edit Form ------ */}
+      
       <form className='blog-edit-detail-form' onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">title: </label>
@@ -119,7 +121,7 @@ const BlogEditDetail = (props) => {
         </div>
         <div>
           <textarea
-            rows="20"
+            rows="10"
             cols="50"
             type="text"
             id='content'

@@ -1,16 +1,16 @@
-.blog-detail-page {
-    margin: 100px auto;
-    width: 80%;
-}
-
 .back-button {
-    margin: 10px 0;
+    margin: 100px 0px 0px 10px;
     display: block;
     color: #fff;
     background: var(--primary-color);
     padding: 10px 20px;
     border-radius: 10px;
     width: fit-content;
+}
+
+.blog-detail-page {
+    margin: 10px auto;
+    width: 80%;
 }
 
 .blog-detail-container {

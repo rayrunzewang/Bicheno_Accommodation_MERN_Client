@@ -12,7 +12,6 @@ import PropertyEdit from './DashNav/PropertyEdit/PropertyEdit';
 
 const API_BASE = 'http://localhost:3001';
 
-
 const Dashboard = () => {
   const { setUser } = useUser();
   const navigate = useNavigate();
@@ -20,10 +19,10 @@ const Dashboard = () => {
   const handleLogout = () => {
     setUser(null);
 
-    // Clear login status
+    // ------ Clear login status ------
     localStorage.removeItem('loginStatus');
 
-    // Navigate back to the login page
+    // ------ Navigate back to the login page ------
     navigate('/private/login');
     fetch(API_BASE + '/logout', { method: 'POST', credentials: 'include' })
       .then(response => {
@@ -41,11 +40,12 @@ const Dashboard = () => {
 
   return (
     <>
+
       <div className='dashboard'>
         <button className='logout-btn' onClick={handleLogout}>LOGOUT</button>
-      <DashNav />
-
+        <DashNav />
       </div>
+
       <div>
         <Routes>
           <Route path='/contactedit' element={<ContactEdit />} ></Route>
@@ -54,8 +54,8 @@ const Dashboard = () => {
           <Route path='/blogedit/*' element={<BlogEdit />} ></Route>
           <Route path='/propertyedit/*' element={<PropertyEdit />} ></Route>
         </Routes>
-
       </div>
+      
     </>
   )
 }

@@ -24,7 +24,6 @@ const Footer = () => {
         return formatedNumber;
     }
 
-
     return (
         <>
             <footer>
