@@ -1,0 +1,146 @@
+.property-edit-container {
+    margin: 0 auto;
+    padding: 10px;
+    height: 500px;
+    overflow: auto;
+}
+
+.property-edit-container h1 {
+    margin: 10px auto;
+}
+
+.property-edit-title {
+    width: 100%;
+}
+
+.property-edit-facilities {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.property-edit-facilities * {
+    margin-right: 10px;
+}
+
+.property-edit-bed {
+    width: 50px;
+    height: 30px;
+    padding: 0 10px;
+    margin: 10px;
+    border: 1px var(--grey) solid;
+    border-radius: 5px;
+}
+
+.property-edit-toliet {
+    width: 50px;
+    height: 30px;
+    padding: 0 10px;
+    margin: 10px;
+    border: 1px var(--grey) solid;
+    border-radius: 5px;
+}
+
+.property-edit-carspace {
+    width: 50px;
+    height: 30px;
+    padding: 0 10px;
+    margin: 10px;
+    border: 1px var(--grey) solid;
+    border-radius: 5px;
+}
+
+.property-edit-address {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.property-edit-description {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.images-edit-upload-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
+    border: 2px dashed #ccc;
+    width: 40%;
+    height: 100px;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.images-edit-selected-area-description {
+    margin: 10px 0;
+}
+
+.images-edit-selected-area {
+    margin: 10px 0;
+    overflow: auto;
+    width: 100%;
+    height: fit-content;
+    max-height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.image-create-div {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 10px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.image-create-div:hover {
+    cursor: pointer;
+}
+
+.images-create-selected-image {
+    height: 80px;
+}
+
+.images-create-selected-image-delete {
+    width: 15px;
+    height: 15px;
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px auto;
+    color: black;
+    border-radius: 0px;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    background: #fff;
+    opacity: 0.5;
+}
+
+.images-create-selected-image-delete:hover {
+    opacity: 1;
+}
+
+.property-title-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.property-address-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.property-description {
+    width: 100%;
+    margin: 10px 0;
+    resize: none;
+}
+
+label::after {
+    content: "*";
+    color: red;
+}

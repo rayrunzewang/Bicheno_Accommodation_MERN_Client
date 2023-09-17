@@ -17,7 +17,7 @@ const PropertyEdit = () => {
   return (
     <div>
       <div className='property-edit-area'>
-        <div className='property-edit-container'>
+        <div className='property-edit-list-container'>
           <div className='property-edit-property-list'>
             <h2>Property List</h2>
             <ul>
@@ -50,7 +50,6 @@ const PropertyEdit = () => {
               element={<PropertyEditDetail property={property._id} />}
             />
           ))}
-
 
         </Routes>
       </div>

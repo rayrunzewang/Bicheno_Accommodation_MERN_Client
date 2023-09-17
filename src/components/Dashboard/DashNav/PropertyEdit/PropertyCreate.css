@@ -111,6 +111,11 @@
     margin-bottom: 10px;
 }
 
+.property-address-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
 .property-description {
     width: 100%;
     margin: 10px 0;

@@ -22,7 +22,7 @@ function Home() {
 
     return (
         <div>
-            {/* vVdeo Background */}
+            {/* Video Background */}
 
             <div className='video-container'>
                 <video autoPlay loop muted className='video' >

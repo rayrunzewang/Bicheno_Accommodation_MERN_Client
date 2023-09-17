@@ -6,7 +6,7 @@
     border: 1px solid var(--grey);
 }
 
-.property-edit-container {
+.property-edit-list-container {
     width: 30%;
     background: var(--grey);
     height: 500px;
@@ -15,7 +15,7 @@
     margin-right: 10px;
 }
 
-.property-edit-container h2 {
+.property-edit-list-container h2 {
     text-align: center;
     margin-bottom: 20px;
 }

@@ -38,6 +38,7 @@ const BlogCreate = () => {
         setIsSaved(true);
         setIsError(false); 
       } else {
+        setIsSaved(false);
         setIsError(true); 
         console.error('Failed to submit data');
       }

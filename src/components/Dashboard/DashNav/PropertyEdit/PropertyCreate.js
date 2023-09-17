@@ -1,30 +1,45 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from '../../../Button/Button';
+import Message from '../../../Message/Message';
 import './PropertyCreate.css';
 
 function PropertiesEdit() {
-  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedFiles, setSelectedFiles] = useState([]);  //selectedFiles is used to store the files selected by the user.
   const [title, setTitle] = useState('');
+  const [address, setAddress] = useState('');
   const [description, setDescription] = useState('');
   const [bed, setBed] = useState('');
   const [toliet, setToliet] = useState('');
   const [carspace, setCarSpace] = useState('');
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('');  //message is used to show success or failure message
+  const [isSaved, setIsSaved] = useState(false);
+  const [isError, setIsError] = useState(false); 
   const [imagePreviews, setImagePreviews] = useState([]);
 
-  // const handleFileChange = (e) => {
-  //   const files = Array.from(e.target.files);
-  //   setSelectedFiles([...selectedFiles, ...files]);
-  //   previewFiles(files);
-  // };
+  /*------------ deprecated:handleFileChange for Upload Button  ------------
+   const handleFileChange = (e) => {
+     const files = Array.from(e.target.files);
+     setSelectedFiles([...selectedFiles, ...files]);
+     previewFiles(files);
+   };*/
+
+  /*  ------ The handleDrop function is used to handle drag-and-drop events. ------
+  When a user drops a file, this function is triggered to add the selected file(s) to selectedFiles 
+  and call the previewFiles function to preview them in the preview area below the drop zone.  */
 
   const handleDrop = (e) => {
     e.preventDefault();
     const files = Array.from(e.dataTransfer.files);
-    setSelectedFiles([...selectedFiles, ...files]);
-    previewFiles(files);
+    setSelectedFiles([...selectedFiles, ...files]); //Merge selected files and newly drop files
+    previewFiles(files); //preview
   };
+
+
+  /* ------The function previewFiles is used to preview files in the preview area. ------
+  It takes a file array as a parameter, 
+  reads the file content using FileReader, 
+  and adds the preview URL to imagePreviews.*/
 
   const previewFiles = (files) => {
     const previews = [];
@@ -41,6 +56,8 @@ function PropertiesEdit() {
     });
   };
 
+
+  /* This handleDelete function is used to update selectedFiles and imagePreviews after clicking to delete a specific image. */
   const handleDelete = (index) => {
     const updatedFiles = [...selectedFiles];
     updatedFiles.splice(index, 1);
@@ -50,18 +67,22 @@ function PropertiesEdit() {
     setImagePreviews(updatedPreviews);
   };
 
+  /* Set the data type of the dragged data to text and set the value to the current index or identifier of the dragged element, enabling identification of the dragged element at the drop target when the dragging starts.*/
+
   const handleImageDragStart = (e, index) => {
     e.dataTransfer.setData('text/plain', index);
   };
 
+  /* ------ The handleImageDrop function is used to handle image drag-and-drop events in the image preview area.
+ It takes the event object and target index as parameters and is used to insert dragged images. */
+
   const handleImageDrop = (e, targetIndex) => {
     e.preventDefault();
-    const draggedIndex = e.dataTransfer.getData('text/plain');
-
+    const draggedIndex = e.dataTransfer.getData('text/plain'); //The main purpose of this line of code is to retrieve the value of the dragged data from the drag-and-drop operation. This value is the index or identifier previously set using e.dataTransfer.setData('text/plain', index).
     const updatedFiles = [...selectedFiles];
     const updatedPreviews = [...imagePreviews];
 
-    // ------------ swap images *not needed anymore ------------
+    // ------------ deprecated:swap images ------------
 
     // const tempFile = updatedFiles[targetIndex];
     // updatedFiles[targetIndex] = updatedFiles[draggedIndex];
@@ -86,11 +107,18 @@ function PropertiesEdit() {
     setImagePreviews(updatedPreviews);
   };
 
-  const handleUpload = () => {
+  /* ------ The function handleUpload is used to handle upload events. ------
+   It creates a FormData object and adds selected files, title, address, description, 
+   and other information to the FormData. 
+   Then, it utilizes axios to send a POST request to upload the data. */
+
+  const handleUpload = (e) => {
+    e.preventDefault();
     const formData = new FormData();
     const imageFiles = [];
 
     selectedFiles.forEach((file) => {
+      console.log(file)
       formData.append('file', file);
       imageFiles.push({
         image_name: file.name,
@@ -98,7 +126,10 @@ function PropertiesEdit() {
       });
     });
 
+    console.log(imageFiles)
+
     formData.append('title', title);
+    formData.append('address', address);
     formData.append('description', description);
     formData.append('bed', bed);
     formData.append('toliet', toliet);
@@ -112,21 +143,27 @@ function PropertiesEdit() {
         },
       })
       .then((response) => {
-        setSelectedFiles([]);
-        setTitle('');
-        setDescription('');
-        setBed('');
-        setToliet('');
-        setCarSpace('');
-        setImagePreviews([]);
-        setMessage('Upload successfully');
-        setTimeout(() => {
-          setMessage('');
-        }, 3000);
+        if (response.status === 200 || response.status === 201) {
+          setSelectedFiles([]);
+          setTitle('');
+          setAddress('');
+          setDescription('');
+          setBed('');
+          setToliet('');
+          setCarSpace('');
+          setImagePreviews([]);
+          setMessage('Upload successfully');
+          setIsSaved(true);
+          setIsError(false); 
+        } else {
+          setIsSaved(false);
+          setIsError(true); 
+          console.error('Error: Request was not successful. Status code:', response.status);
+        }
       })
       .catch((error) => {
-        setMessage('Upload failed');
-        console.error(error);
+        setIsError(true); 
+        console.error('Error: Request failed:', error);
       });
   };
 
@@ -136,7 +173,7 @@ function PropertiesEdit() {
         <h1>New Property Launch</h1>
         <div>
           <div>
-            <input className='property-title-input' type="text" placeholder="Title (required*)" value={title} required onChange={(e) => setTitle(e.target.value)} /> 
+            <input className='property-title-input' type="text" placeholder="Title (required*)" value={title} required onChange={(e) => setTitle(e.target.value)} />
           </div>
           <div className='property-create-facilities'>
             <div>
@@ -152,9 +189,11 @@ function PropertiesEdit() {
               <input className='property-create-carspace' type="number" id='property-create-carspace' min="0" value={carspace} required onChange={(e) => setCarSpace(e.target.value)} />
             </div>
           </div>
+          <input className='property-address-input' type="text" placeholder="Address (required*)" value={address} name="address" id="address" required onChange={(e) => setAddress(e.target.value)}></input>
+
           <textarea className='property-description' placeholder="Description (required*)" value={description} name="description" id="description" cols="30" rows="10" required onChange={(e) => setDescription(e.target.value)}></textarea>
 
-          {/* ------------ Upload Button *not needed anymore ------------ */}
+          {/* ------------ Upload Button *deprecated ------------ */}
 
           {/* <div>
           <label htmlFor="property-cover-image-upload">choose cover Image</label>
@@ -182,7 +221,7 @@ function PropertiesEdit() {
                 onDrop={(e) => handleImageDrop(e, index)}
               >
                 <img className='images-selected-image' src={imagePreviews[index]} alt={file.name} />
-                <button className='images-selected-image-delete'
+                <button type='button' className='images-selected-image-delete'
                   onClick={() => handleDelete(index)}
                 >
                   &times;
@@ -191,9 +230,10 @@ function PropertiesEdit() {
             ))}
           </div>
         </div>
-        <p>{message}</p>
-        <Button onClick={handleUpload} label='Upload' />
+        <Button label='Upload' />
       </form>
+      {isSaved && <Message message={'Updated secessfully, click Ok to reload the page'} />}
+      {isError && <Message message={'Updated failed, an error occurred'}/> }
     </div>
   );
 }
