@@ -1,8 +1,8 @@
 .contact-edit {
-    margin: 50px auto;
-    border: 1px black solid;
-    width: fit-content;
-    padding: 20px;
+    margin: 20px auto;
+    background: var(--grey);
+    border: 1px var(--grey) solid;
+    width: 80%;
     border-radius: 10px;
 }
 
@@ -12,7 +12,11 @@
 
 .contact-edit-container {
     line-height: 40px;
-
+    padding: 20px;
+    margin:50px auto;
+    width: fit-content;
+    background: #fff;
+    border-radius: 10px;
 }
 
 .contact-edit-button {

@@ -14,7 +14,7 @@ function PropertiesEdit() {
   const [carspace, setCarSpace] = useState('');
   const [message, setMessage] = useState('');  //message is used to show success or failure message
   const [isSaved, setIsSaved] = useState(false);
-  const [isError, setIsError] = useState(false); 
+  const [isError, setIsError] = useState(false);
   const [imagePreviews, setImagePreviews] = useState([]);
 
   /*------------ deprecated:handleFileChange for Upload Button  ------------
@@ -154,40 +154,37 @@ function PropertiesEdit() {
           setImagePreviews([]);
           setMessage('Upload successfully');
           setIsSaved(true);
-          setIsError(false); 
+          setIsError(false);
         } else {
           setIsSaved(false);
-          setIsError(true); 
+          setIsError(true);
           console.error('Error: Request was not successful. Status code:', response.status);
         }
       })
       .catch((error) => {
-        setIsError(true); 
+        setIsError(true);
         console.error('Error: Request failed:', error);
       });
   };
 
   return (
     <div className='property-create-container'>
-      <form onSubmit={handleUpload}>
+      <form className='property-create-form' onSubmit={handleUpload}>
+        <p>/*Create a new property or select an existing one to edit from the left.</p>
         <h1>New Property Launch</h1>
-        <div>
           <div>
             <input className='property-title-input' type="text" placeholder="Title (required*)" value={title} required onChange={(e) => setTitle(e.target.value)} />
           </div>
           <div className='property-create-facilities'>
-            <div>
+
               <label htmlFor="property-create-bed">bed</label>
               <input className='property-create-bed' type="number" id='property-create-bed' min="1" value={bed} required onChange={(e) => setBed(e.target.value)} />
-            </div>
-            <div>
+            
               <label htmlFor="property-create-toliet">toliet</label>
               <input className='property-create-toliet' type="number" id='property-create-toliet' min="0" value={toliet} required onChange={(e) => setToliet(e.target.value)} />
-            </div>
-            <div>
+            
               <label htmlFor="property-create-carspace">car space</label>
               <input className='property-create-carspace' type="number" id='property-create-carspace' min="0" value={carspace} required onChange={(e) => setCarSpace(e.target.value)} />
-            </div>
           </div>
           <input className='property-address-input' type="text" placeholder="Address (required*)" value={address} name="address" id="address" required onChange={(e) => setAddress(e.target.value)}></input>
 
@@ -229,11 +226,10 @@ function PropertiesEdit() {
               </div>
             ))}
           </div>
-        </div>
         <Button label='Upload' />
       </form>
       {isSaved && <Message message={'Updated secessfully, click Ok to reload the page'} />}
-      {isError && <Message message={'Updated failed, an error occurred'}/> }
+      {isError && <Message message={'Updated failed, an error occurred'} />}
     </div>
   );
 }

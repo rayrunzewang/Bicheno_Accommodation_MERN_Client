@@ -35,11 +35,11 @@ const PropertyEdit = () => {
               )}
             </ul>
           </div>
-          <Link className='property-edit-create-button' to='/private/dashboard/propertyedit/propertycreate'>Create New Post</Link>
+          <Link className='property-edit-create-button' to='/private/dashboard/propertyedit/'>Create New Post</Link>
 
         </div>
         <Routes>
-          <Route path={`/propertycreate`} element={<PropertyCreate />} />
+          <Route path={`/`} element={<PropertyCreate />} />
 
           {/* ------ Prevent errors when the array is empty. ------ */}
 

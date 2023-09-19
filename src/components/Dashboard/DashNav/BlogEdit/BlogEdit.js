@@ -33,13 +33,13 @@ const BlogEdit = () => {
           </ul>
         </div>
 
-        <Link className='blog-edit-create-button' to='/private/dashboard/blogedit/create'>Create New Post</Link>
+        <Link className='blog-edit-create-button' to='/private/dashboard/blogedit/'>Create New Post</Link>
       </div>
 
               {/* ------ Blog Edit Page Component ------ */}
 
       <Routes>
-        <Route path={`/create`} element={<BlogCreate />} />
+        <Route path={`/`} element={<BlogCreate />} />
         {posts.map(post => {
           return <Route
             key={post._id}

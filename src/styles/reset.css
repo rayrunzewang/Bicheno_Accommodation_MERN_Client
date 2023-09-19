@@ -36,12 +36,17 @@ button, input {
 
 input[type="text"],
 input[type="password"],
+input[type="number"],
 textarea,
 select {
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 8px;
   font-size: 16px;
+}
+
+textarea {
+  resize: none;
 }
 
 button {

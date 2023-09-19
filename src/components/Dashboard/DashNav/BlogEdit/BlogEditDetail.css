@@ -1,11 +1,13 @@
 .blog-edit-detail {
+    width: 70%;
+    margin: 0 auto;
+    height: 500px;
     padding: 10px;
     overflow: auto;
-    width: 70%;
 }
 
-.blog-edit-detail-form textarea {
-    width: 100%;
+.blog-edit-detail-form{
+    width: 500px;
 }
 
 .submit-post-button {

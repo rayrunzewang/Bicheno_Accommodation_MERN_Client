@@ -134,6 +134,7 @@ const BlogEditDetail = (props) => {
 
         <Button label='Save' />
       </form>
+      
       <Button onClick={() => deletePost(postId)} label='Delete' />
       {isSaved && <Message message='Data saved successfully'  />}
       {isDeleted && <Message message='Post deleted successfully'  />}

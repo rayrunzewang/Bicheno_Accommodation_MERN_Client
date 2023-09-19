@@ -215,33 +215,27 @@ const PropertyEditDetail = (props) => {
     }
 
     return (
-        <>
+
             <div className='property-edit-container'>
-                <form onSubmit={handleUpdate}>
+                <form className='property-edit-form' onSubmit={handleUpdate}>
                     <h1>Property Update</h1>
                     <div>
                         <div>
                             <input className='property-edit-title' id='property-edit-title' type="text" placeholder='Title (required*)' value={property.title} required onChange={(e) => setProperty({ ...property, title: e.target.value })} />
                         </div>
                         <div className='property-edit-facilities'>
-                            <div>
                                 <label htmlFor="property-edit-bed">bed</label>
                                 <input className='property-edit-bed' id='property-edit-bed' type='number' min='0' value={property.bed} required onChange={(e) => setProperty({ ...property, bed: e.target.value })} />
-                            </div>
-                            <div>
                                 <label htmlFor="property-edit-toliet">toliet</label>
                                 <input className='property-edit-toliet' id='property-edit-toliet' type='number' min='0' value={property.toliet} required onChange={(e) => setProperty({ ...property, toliet: e.target.value })} />
-                            </div>
-                            <div>
                                 <label htmlFor="property-edit-carspace">car space</label>
                                 <input className='property-edit-carspace' id='property-edit-carspace' type='number' min='0' value={property.carspace} required onChange={(e) => setProperty({ ...property, carspace: e.target.value })} />
-                            </div>
                         </div>
                         <div>
                             <input className='property-edit-address' id='property-edit-address' type="text" placeholder='Address (required*)' value={property.address} required onChange={(e) => setProperty({ ...property, address: e.target.value })} />
                         </div>
                         <div>
-                            <input className='property-edit-description' id='property-edit-description' type="text" placeholder='Description (required*)' value={property.description} required onChange={(e) => setProperty({ ...property, description: e.target.value })} />
+                            <textarea className='property-edit-description' id='property-edit-description' type="text" placeholder='Description (required*)' value={property.description} cols="30" rows="10" required onChange={(e) => setProperty({ ...property, description: e.target.value })} />
                         </div>
                         <div className='images-edit-upload-area'
                             onDrop={handleDrop}
@@ -275,7 +269,7 @@ const PropertyEditDetail = (props) => {
                 {successMessage && <Message message={'Updated secessfully, click Ok to reload the page'} />}
                 {failMessage && <Message message={'Updated failed, an error occurred'} />}
             </div>
-        </>
+
     )
 };
 

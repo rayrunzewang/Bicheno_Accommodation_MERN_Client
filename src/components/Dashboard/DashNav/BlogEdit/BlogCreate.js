@@ -52,9 +52,8 @@ const BlogCreate = () => {
       <div className='blog-create'>
 
         {/* ------ Blog Create Form ------ */}
-        
-        <form onSubmit={handleSubmit}>
-          <div className='blog-create-container'>
+        <p>/*Create a new article or select an existing one to edit from the left.</p>
+        <form className='blog-create-form' onSubmit={handleSubmit}>
             <div>
               <label htmlFor='title'>title:</label>
             </div>
@@ -98,10 +97,8 @@ const BlogCreate = () => {
                 onChange={handleChange}
                 required
               ></textarea>
-            </div>
-
           </div>
-          <Button type='submit' label='Save' />
+          <Button type='submit' label='Create New' />
         </form>
         {isSaved && <Message message='Uploaded successfully . Please click OK to refresh the page. 
 ' /> }

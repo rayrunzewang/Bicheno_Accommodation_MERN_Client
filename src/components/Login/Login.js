@@ -13,7 +13,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:3001/login', {
+      const response = await fetch(`${API_BASE}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,10 +26,20 @@ function Login() {
         setUser({ username }); 
         localStorage.setItem('loginStatus', 'loggedIn'); 
         navigate('/private/dashboard');
-
-      }
+      } else {
+        if (response.status === 400) {
+          const data = await response.json();
+          console.log(response)
+          console.log(data)
+          console.log(data.error)
+          alert(data.error);
+        } else {
+          alert('An error occurred. Please try again later.');
+        }
+      } 
     } catch (error) {
       console.error('Error during login:', error);
+
     }
   };
 

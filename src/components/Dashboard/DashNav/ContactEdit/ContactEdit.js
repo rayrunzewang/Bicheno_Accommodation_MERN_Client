@@ -6,7 +6,14 @@ import Button from '../../../Button/Button';
 import Message from '../../../Message/Message';
 
 const ContactEdit = () => {
-  const [contact, setContact] = useState([]);
+  const [contact, setContact] = useState({
+    phoneNumber: '',
+    alternativePhoneNumber: '',
+    email: '',
+    address: '',
+    facebookURL: '',
+    instagramURL: '',
+  });
   const [isError, setIsError] = useState(false);
   const [formData, setFormData] = useState({
     phoneNumber: '',
@@ -74,90 +81,85 @@ const ContactEdit = () => {
   };
 
   return (
-
     <div className='contact-edit'>
 
       {/* ------ Contact Edit Form ------ */}
-
-      <form onSubmit={handleSubmit}>
-        <div className='contact-edit-container'>
-          <div>
-            <label htmlFor='phoneNumber'>Phone Number 1:</label>
-          </div>
-          <div>
-            <input
-              type='text'
-              id='phoneNumber'
-              name='phoneNumber'
-              defaultValue={contact.phoneNumber}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor='alternativePhoneNumber'>Phone Number 2:</label>
-          </div>
-          <div>
-            <input
-              type='text'
-              id='alternativePhoneNumber'
-              name='alternativePhoneNumber'
-              defaultValue={contact.alternativePhoneNumber}
-              placeholder='(optional)'
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor='address'>Address:</label>
-          </div>
-          <div>
-            <input
-              type='text'
-              id='address'
-              name='address'
-              defaultValue={contact.address}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor='email'>Email:</label>
-          </div>
-          <div>
-            <input
-              type='text'
-              id='email'
-              name='email'
-              defaultValue={contact.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor='facebookURL'>facebookURL:</label>
-          </div>
-          <div>
-            <input
-              type='text'
-              id='facebookURL'
-              name='facebookURL'
-              defaultValue={contact.facebookURL}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor='instagramURL'>instagramURL:</label>
-          </div>
-          <div>
-            <input
-              type='text'
-              id='instagramURL'
-              name='instagramURL'
-              defaultValue={contact.instagramURL}
-              onChange={handleChange}
-              required
-            />
-          </div>
+      <form className='contact-edit-container' onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor='phoneNumber'>Phone Number 1:</label>
+        </div>
+        <div>
+          <input
+            type='text'
+            id='phoneNumber'
+            name='phoneNumber'
+            defaultValue={contact.phoneNumber}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor='alternativePhoneNumber'>Phone Number 2:</label>
+        </div>
+        <div>
+          <input
+            type='text'
+            id='alternativePhoneNumber'
+            name='alternativePhoneNumber'
+            defaultValue={contact.alternativePhoneNumber}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor='address'>Address:</label>
+        </div>
+        <div>
+          <input
+            type='text'
+            id='address'
+            name='address'
+            defaultValue={contact.address}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor='email'>Email:</label>
+        </div>
+        <div>
+          <input
+            type='text'
+            id='email'
+            name='email'
+            defaultValue={contact.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor='facebookURL'>facebookURL:</label>
+        </div>
+        <div>
+          <input
+            type='text'
+            id='facebookURL'
+            name='facebookURL'
+            defaultValue={contact.facebookURL}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor='instagramURL'>instagramURL:</label>
+        </div>
+        <div>
+          <input
+            type='text'
+            id='instagramURL'
+            name='instagramURL'
+            defaultValue={contact.instagramURL}
+            onChange={handleChange}
+            required
+          />
         </div>
         <Button type='submit' label='Save' />
         {isSaved && <Message message='Data saved successfully' />}

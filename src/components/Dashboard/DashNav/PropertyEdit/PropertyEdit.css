@@ -1,18 +1,22 @@
 .property-edit-area {
     display: flex;
-    width: 915px;
+    width: 90%;
     height: 500px;
     margin: 20px auto;
     border: 1px solid var(--grey);
+    border-radius: 10px;
+    background: var(--grey);
 }
 
 .property-edit-list-container {
     width: 30%;
+    min-width: 300px;
     background: var(--grey);
     height: 500px;
     font-size: 18px;
     padding: 20px;
     margin-right: 10px;
+    border-radius: 10px;
 }
 
 .property-edit-list-container h2 {

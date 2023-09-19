@@ -1,4 +1,5 @@
 .property-edit-container {
+    width: 70%;
     margin: 0 auto;
     padding: 10px;
     height: 500px;
@@ -9,14 +10,19 @@
     margin: 10px auto;
 }
 
+.property-edit-form {
+    width: 500px;
+}
+
 .property-edit-title {
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .property-edit-facilities {
     display: flex;
     justify-content: flex-start;
-    width: 100%;
+    align-items: center;
 }
 
 .property-edit-facilities * {
@@ -24,29 +30,29 @@
 }
 
 .property-edit-bed {
-    width: 50px;
+    width: 60px;
     height: 30px;
-    padding: 0 10px;
-    margin: 10px;
-    border: 1px var(--grey) solid;
+    padding-left: 10px;
+    padding-right: 0px;
+    margin: 0 20px 0 0;
     border-radius: 5px;
 }
 
 .property-edit-toliet {
-    width: 50px;
+    width: 60px;
     height: 30px;
-    padding: 0 10px;
-    margin: 10px;
-    border: 1px var(--grey) solid;
+    padding-left: 10px;
+    padding-right: 0px;
+    margin: 0 20px 0 0;
     border-radius: 5px;
 }
 
 .property-edit-carspace {
-    width: 50px;
+    width: 60px;
     height: 30px;
-    padding: 0 10px;
-    margin: 10px;
-    border: 1px var(--grey) solid;
+    padding-left: 10px;
+    padding-right: 0px;
+    margin: 0 20px 0 0;
     border-radius: 5px;
 }
 
@@ -64,7 +70,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #ccc;
+    background-color: #fff;
+    color: black;
     border: 2px dashed #ccc;
     width: 40%;
     height: 100px;
