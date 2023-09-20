@@ -147,7 +147,3 @@
     resize: none;
 }
 
-label::after {
-    content: "*";
-    color: red;
-}

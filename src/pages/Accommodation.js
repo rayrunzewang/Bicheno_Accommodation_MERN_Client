@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AccommodationCard from '../components/AccommodationCard/AccommodationCard';
 import './Accommodation.css'
 
 function Accommodation() {
     const [properties, setProperties] = useState([]);
-    useState(() => {
+    useEffect(() => {
         fetch('http://localhost:3001/property')
             .then(res => res.json())
             .then(data => setProperties(data))

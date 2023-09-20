@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   width: 100%;
   margin: 0;
@@ -28,11 +32,15 @@ em {
     font-style: normal;
 }
 
+label.required-input::after {
+  content: "*";
+  color: red;
+}
+
 button, input {
   border: none; 
   outline: none; 
 }
-
 
 input[type="text"],
 input[type="password"],

@@ -26,7 +26,7 @@ const PropertyPage = (props) => {
             <Link className='back-button' to='/public/accommodation'>Back To Accommodations</Link>
             <div className='property-detail-page'>
                 <h2 className='property-detail-title'>{property.title}</h2>
-
+                
                 <div className='property-detial-image-container'>
                     <div
                         style={{ backgroundImage: `url(http://localhost:3001/${slides[currentIndex].image_url.replace(/\\/g, '/')})` }}
@@ -46,7 +46,7 @@ const PropertyPage = (props) => {
                             <div
                                 key={slideIndex}
                                 onClick={() => { goToSlide(slideIndex) }}
-                                className={`slide `}
+                                className={`property-detial-image-slide`}
                             >
                                 {slideIndex === currentIndex ? <GoDotFill /> : <GoDot />}
                             </div>

@@ -14,7 +14,7 @@ const AccommodationCard = ({ property }) => {
       
       <div key={property._id}>
         <div className='accommodation-page-image-wrap'>
-          <img className='accommodation-page-card-image' src={`http://localhost:3001/.replace(/\\/g, '/')}`} alt={property.title} />
+          <img className='accommodation-page-card-image' src={`http://localhost:3001/${property.images[0].image_url.replace(/\\/g, '/')}`} alt={property.title} />
         </div>
         <div className='accommodation-page-card-text'>
           <h3 className='accommodation-page-card-textline accommodation-page-card-title'>{property.title}</h3>
