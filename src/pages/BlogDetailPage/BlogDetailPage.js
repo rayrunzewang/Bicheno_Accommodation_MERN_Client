@@ -21,7 +21,7 @@ const BlogDetailPage = (props) => {
                 <div className='blog-detail-container'>
                     <h2 className='blog-detail-title'>{post.title}</h2>
                     <p className='blog-detail-author'>Author:{post.author}</p>
-                    <p className='blog-detail-content'>{post.content}</p>
+                    <pre className='blog-detail-content'>{post.content}</pre>
                 </div>
             </div>
         </>

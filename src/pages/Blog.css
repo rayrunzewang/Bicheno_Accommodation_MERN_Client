@@ -9,18 +9,16 @@
 
 .blog-page-container {
     font-size: 18px;
-    width: fit-content;
     margin: 10px auto;
+    width: 500px;
     padding: 10px;
 }
 
 .blog-page-post {
-    margin: 50px 10px;
-    border-left: 1px dashed black;
-    padding: 2px;
+    margin: 20px 10px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); 
-    padding-left: 10px;
 }
 
 .blog-page-post div {

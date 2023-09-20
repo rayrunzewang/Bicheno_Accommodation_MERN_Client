@@ -63,7 +63,7 @@ const BlogCreate = () => {
                   rows="2"
                   cols="50"
                   type="text"
-                  id='title'
+                  id='blog-create-title'
                   name='title'
                   onChange={handleChange}
                   required
@@ -78,7 +78,7 @@ const BlogCreate = () => {
                 rows="2"
                 cols="50"
                 type="text"
-                id='author'
+                id='blog-create-author'
                 name='author'
                 onChange={handleChange}
                 required
@@ -92,7 +92,7 @@ const BlogCreate = () => {
                 rows="10"
                 cols="50"
                 type="text"
-                id='content'
+                id='blog-create-content'
                 name='content'
                 onChange={handleChange}
                 required

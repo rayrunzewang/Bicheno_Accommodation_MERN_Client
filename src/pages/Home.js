@@ -147,35 +147,41 @@ function Home() {
 
             {/* carousell and welcome */}
             <div className='home-page-main' id='scroll'>
-                <div className='home-page-carousell-container'>
-                    <h2 className='home-page-carousell-title'>Our Accommodation</h2>
+                <div className='home-page-carousel-container'>
+                    <h2 className='home-page-carousel-title'>Our Accommodation</h2>
 
-                    <div className='property-detial-image-container'>
+                    <div className='home-page-carousel-image-container'>
                         {slides.length > 0 && <div
                             style={{ backgroundImage: `url(http://localhost:3001/${slides[currentIndex].images[0].image_url.replace(/\\/g, '/')})` }}
-                            className='home-page-carousell-image'>
+                            className='home-page-carousel-image'>
                         </div>}
-                        <div className='home-page-carousell-image-left-arrow' onClick={() => handleSlideChange((currentIndex - 1 + slides.length) % slides.length)}
+
+                        <div className='home-page-carousel-image-left-arrow' onClick={() => handleSlideChange((currentIndex - 1 + slides.length) % slides.length)}
                             size={30}>
                             <BsChevronCompactLeft />
                         </div>
-                        <div className='home-page-carousell-image-right-arrow' onClick={() => handleSlideChange((currentIndex + 1) % slides.length)}
+                        <div className='home-page-carousel-image-right-arrow' onClick={() => handleSlideChange((currentIndex + 1) % slides.length)}
                             size={30}>
                             <BsChevronCompactRight />
                         </div>
 
-                        <div className='home-page-carousell-image-nav'>
+                        <div className='home-page-carousel-image-nav'>
                             {slides.map((slide, slideIndex) => (
                                 <div
                                     key={slideIndex}
                                     onClick={() => { goToSlide(slideIndex) }}
-                                    className={`home-page-carousell-slide`}
+                                    className={`home-page-carousel-slide`}
                                 >
                                     {slideIndex === currentIndex ? <GoDotFill /> : <GoDot />}
                                 </div>
                             ))}
                         </div>
+                        <div className='home-page-carousel-description'>
+                            {slides.length > 0 && <p className='text-black'>{slides[currentIndex].description}</p>}
+                        </div>
                     </div>
+                    
+
                 </div>
                 <div className='home-page-welcome-container'>
                     <h2 className='home-page-welcome-title'> Welcome to Bicheno</h2>
@@ -200,13 +206,13 @@ function Home() {
                     <input type="text" id="contact-form-email" name="email" value={formData.email} onChange={handleChange} required />
 
                     <label className='required-input' htmlFor="message">Message:</label>
-                    <textarea 
-                    id="contact-form-message" 
-                    name="message" 
-                    value={formData.message} 
-                    rows={10}
-                    onChange={handleChange} 
-                    required />
+                    <textarea
+                        id="contact-form-message"
+                        name="message"
+                        value={formData.message}
+                        rows={10}
+                        onChange={handleChange}
+                        required />
 
                     <Button label='Send Enquiry' />
 
