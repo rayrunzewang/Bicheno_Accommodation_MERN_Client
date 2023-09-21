@@ -1,0 +1,19 @@
+.pdf-page {
+    width: 1240px;
+    height: 1759px;
+    padding: 100px;
+}
+
+.pdf-page-title{
+    font-size: 30px;
+    text-align: center;
+}
+
+.pdf-page-description {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.pdf-page-logo-image {
+    width: 100px;
+}
