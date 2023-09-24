@@ -24,22 +24,18 @@ function Login() {
 
       if (response.ok) {
         setUser({ username }); 
-        localStorage.setItem('loginStatus', 'loggedIn'); 
+        // localStorage.setItem('loginStatus', 'loggedIn'); 
         navigate('/private/dashboard');
       } else {
         if (response.status === 400) {
           const data = await response.json();
-          console.log(response)
-          console.log(data)
-          console.log(data.error)
-          alert(data.error);
+          alert(data.message);
         } else {
           alert('An error occurred. Please try again later.');
         }
       } 
     } catch (error) {
       console.error('Error during login:', error);
-
     }
   };
 

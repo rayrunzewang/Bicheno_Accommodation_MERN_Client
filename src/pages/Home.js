@@ -147,26 +147,26 @@ function Home() {
 
             {/* carousell and welcome */}
             <div className='home-page-main' id='scroll'>
-                <div className='home-page-carousel-container'>
+                 <div className='home-page-carousel-container'>
                     <h2 className='home-page-carousel-title'>Our Accommodation</h2>
 
                     <div className='home-page-carousel-image-container'>
-                        {slides.length > 0 && <div
+                        {slides && slides.length > 0 && <div
                             style={{ backgroundImage: `url(http://localhost:3001/${slides[currentIndex].images[0].image_url.replace(/\\/g, '/')})` }}
                             className='home-page-carousel-image'>
                         </div>}
 
-                        <div className='home-page-carousel-image-left-arrow' onClick={() => handleSlideChange((currentIndex - 1 + slides.length) % slides.length)}
+                        {slides && slides.length > 0 &&<div className='home-page-carousel-image-left-arrow' onClick={() => handleSlideChange((currentIndex - 1 + slides.length) % slides.length)}
                             size={30}>
                             <BsChevronCompactLeft />
-                        </div>
-                        <div className='home-page-carousel-image-right-arrow' onClick={() => handleSlideChange((currentIndex + 1) % slides.length)}
+                        </div>}
+                        {slides && slides.length > 0 &&<div className='home-page-carousel-image-right-arrow' onClick={() => handleSlideChange((currentIndex + 1) % slides.length)}
                             size={30}>
                             <BsChevronCompactRight />
-                        </div>
+                        </div>}
 
                         <div className='home-page-carousel-image-nav'>
-                            {slides.map((slide, slideIndex) => (
+                        {slides && slides.length > 0 && slides.map((slide, slideIndex) => (
                                 <div
                                     key={slideIndex}
                                     onClick={() => { goToSlide(slideIndex) }}
@@ -177,7 +177,8 @@ function Home() {
                             ))}
                         </div>
                         <div className='home-page-carousel-description'>
-                            {slides.length > 0 && <p className='text-black'>{slides[currentIndex].description}</p>}
+                            {slides && slides.length > 0?( <p className='home-page-carousel-text'>{slides[currentIndex].description}</p>)
+                            :( <p className='home-page-carousel-loading'>Loading...</p> )}
                         </div>
                     </div>
                     

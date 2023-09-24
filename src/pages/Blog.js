@@ -17,14 +17,18 @@ function Blog() {
             <h2 className='blog-page-title'>Article List</h2>
             <div className='blog-page-container'>
                 <ul>
-                    {posts.map(post => (
+
+              
+                    {  !Array.isArray(posts) || posts.length === 0 ? (
+                        <p>No Blog posts available.</p>
+                    ) :( posts.map(post => (
                         <li className='blog-page-post' key={post._id}>
                             <div>
                                 <Link className='blog-page-post-title' to={`/public/${post._id}`} >{post.title}</Link>
                             </div>
                             <p className='blog-page-post-author' >Author:{post.author}</p>
                         </li>
-                    ))}
+                    )))}
                 </ul>
             </div>
         </div>

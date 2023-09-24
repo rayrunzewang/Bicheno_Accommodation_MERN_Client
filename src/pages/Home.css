@@ -249,6 +249,11 @@
     margin: 0 auto;
 }
 
+.home-page-carousel-loading {
+    text-align: center;
+    margin: 10px;
+}
+
 .home-page-carousel-image-left-arrow {
     position: absolute;
     top: 50%;

@@ -33,16 +33,29 @@ const PropertyPage = (props) => {
         tempElement.style.top = '-9999px';
         document.body.appendChild(tempElement);
 
-        html2canvas(tempElement, { useCORS: true }).then(canvas => {
-            const imgData = canvas.toDataURL('image/jpeg');
-            const pdf = new jsPDF();
-            const imgProps = pdf.getImageProperties(imgData);
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-            pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-            pdf.save('report.pdf');
+        // html2canvas(tempElement, { useCORS: true }).then(canvas => {
+        //     const imgData = canvas.toDataURL('image/jpeg');
+        //     const pdf = new jsPDF();
+        //     const imgProps = pdf.getImageProperties(imgData);
+        //     const pdfWidth = pdf.internal.pageSize.getWidth();
+        //     const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        //     pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+        //     pdf.save('report.pdf');
 
-            document.body.removeChild(tempElement);
+        //     document.body.removeChild(tempElement);
+        // });
+
+        var doc = new jsPDF("portrait", "pt", "a4");
+
+        doc.html(content, {
+            html2canvas: {
+                quality: 1
+            },
+            callback: function (pdf) {
+                pdf.save(`document.pdf`);
+            },
+            margin: [10,20,10,20],
+            autoPaging:'text'
         });
     };
 
@@ -100,6 +113,7 @@ const PropertyPage = (props) => {
             <Link className='back-button' to='/public/accommodation'>Back To Accommodations</Link>
             <div className='property-detail-page'>
                 <h2 className='property-detail-title'>{property.title}</h2>
+                <p className='property-detail-address'>{property.address}</p>
 
                 <div className='property-detial-image-container'>
                     <div
@@ -127,13 +141,16 @@ const PropertyPage = (props) => {
                         ))}
                     </div>
                 </div>
-                <div>
-                    <button onClick={generatePDF} type="button">Export PDF</button>
+                <div className='property-detail-downloandpdf-button'>
+                    <button  onClick={generatePDF} type="button">Export PDF</button>
                 </div>
-                <div className='property-detail-container'>
-                    <p className='property-detail-content'>{property.description}</p>
+                <div className='property-detail-facilities-container'>
+                    <p className='property-detail-facilities'>Bed: {property.bed}, Toliet: {property.toliet}, Car Space: {property.carspace}</p>
                 </div>
-                
+                <div className='property-detail-description-container'>
+                    <pre className='property-detail-content'>{property.description}</pre>
+                </div>
+
             </div>
 
         </>

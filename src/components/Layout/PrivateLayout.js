@@ -11,19 +11,31 @@ const PrivateLayout = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const loginStatus = localStorage.getItem('loginStatus');
-        if (loginStatus === 'loggedIn') {
-
-            const currentPath = window.location.pathname; 
-            if (currentPath.startsWith('/private/dashboard')) {
-                navigate(currentPath); 
-            } else {
-                navigate('/private/dashboard'); 
+        const checkSession = async () => {
+            try {
+              const response = await fetch('http://localhost:3001/check-session', {
+                method: 'GET',
+                credentials: 'include'
+              });
+              const data = await response.json();
+      
+              if (data.user) {
+                const currentPath = window.location.pathname;
+                if (currentPath.startsWith('/private/dashboard')) {
+                  navigate(currentPath);
+                } else {
+                  navigate('/private/dashboard');
+                }
+              } else {
+                navigate('/private/login');
+              }
+            } catch (error) {
+              console.error('Error:', error);
             }
-        } else {
-            navigate('/private/login');
-        }
-    }, [navigate]);
+          };
+      
+          checkSession();
+    }, [navigate]); 
 
     return (
         <div className='PrivateLayout'>
