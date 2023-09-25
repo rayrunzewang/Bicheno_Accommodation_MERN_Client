@@ -177,13 +177,13 @@ function PropertiesEdit() {
           </div>
           <div className='property-create-facilities'>
 
-              <label htmlFor="property-create-bed">bed</label>
+              <label className='required-input' htmlFor="property-create-bed">bed</label>
               <input className='property-create-bed' type="number" id='property-create-bed' min="1" value={bed} required onChange={(e) => setBed(e.target.value)} />
             
-              <label htmlFor="property-create-toliet">toliet</label>
+              <label className='required-input' htmlFor="property-create-toliet">toliet</label>
               <input className='property-create-toliet' type="number" id='property-create-toliet' min="0" value={toliet} required onChange={(e) => setToliet(e.target.value)} />
             
-              <label htmlFor="property-create-carspace">car space</label>
+              <label className='required-input' htmlFor="property-create-carspace">car space</label>
               <input className='property-create-carspace' type="number" id='property-create-carspace' min="0" value={carspace} required onChange={(e) => setCarSpace(e.target.value)} />
           </div>
           <input className='property-address-input' type="text" placeholder="Address (required*)" value={address} name="address" id="address" required onChange={(e) => setAddress(e.target.value)}></input>

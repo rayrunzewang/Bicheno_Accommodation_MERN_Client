@@ -87,7 +87,7 @@ const BlogEditDetail = (props) => {
       
       <form className='blog-edit-detail-form' onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="title">title: </label>
+          <label className='required-input' htmlFor="title">title: </label>
         </div>
         <div>
           <textarea
@@ -102,7 +102,7 @@ const BlogEditDetail = (props) => {
           ></textarea>
         </div>
         <div>
-          <label htmlFor="author">author: </label>
+          <label className='required-input' htmlFor="author">author: </label>
         </div>
         <div>
           <textarea
@@ -117,7 +117,7 @@ const BlogEditDetail = (props) => {
           ></textarea>
         </div>
         <div>
-          <label htmlFor="content">content: </label>
+          <label className='required-input' htmlFor="content">content: </label>
         </div>
         <div>
           <textarea

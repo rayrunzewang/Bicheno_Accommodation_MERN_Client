@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Button from '../../../Button/Button';
+import Message from '../../../Message/Message';
 import './AccountEdit.css'
 
 const AccountEdit = () => {
@@ -9,6 +10,7 @@ const AccountEdit = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordMatch, setPasswordMatch] = useState(true);
+  const [successMessage, setSuccessMessage] = useState(false);
 
   const handleNewPasswordChange = (e) => {
     const newPassword = e.target.value;
@@ -57,7 +59,7 @@ const AccountEdit = () => {
 
 
       if (response.ok) {
-        alert('Password has been successfully changed.');
+        setSuccessMessage(true)
       } else {
         const errorData = await response.json();
         alert(`Password change failed: ${errorData.error}`);
@@ -81,15 +83,15 @@ const AccountEdit = () => {
           <input type="text" className='account-edit-username' id='account-edit-username' value='username' readOnly />
         </div>
         <div>
-          <label htmlFor="account-edit-old-password">Current Password</label>
+          <label className='required-input' htmlFor="account-edit-old-password">Current Password</label>
           <input type="password" className='account-edit-old-password' id='account-edit-old-password' required onChange={e => setOldPassword(e.target.value)} autoComplete="off" />
         </div>
         <div>
-          <label htmlFor="account-edit-new-password">New Password</label>
+          <label className='required-input' htmlFor="account-edit-new-password">New Password</label>
           <input type="password" className='account-edit-new-password' id='account-edit-new-password' required onChange={handleNewPasswordChange} />
         </div>
         <div>
-          <label htmlFor="account-edit-new-password">Confirm New Password</label>
+          <label className='required-input' htmlFor="account-edit-new-password">Confirm New Password</label>
           <input
             type="password"
             className={`account-edit-confirm-password `}
@@ -100,11 +102,9 @@ const AccountEdit = () => {
           </span>
         </div>
 
-
-
-
         <Button label='Confirm' />
       </form>
+      {successMessage && <Message message={'Password has been successfully changed.'}/>}
 
 
 

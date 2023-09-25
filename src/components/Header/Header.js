@@ -11,6 +11,10 @@ import './Header.css'
 const Header = () => {
     const [posts, setPosts] = useState([]);
     const [properties, setProperties] = useState([]);
+    const [isNavVisible, setNavVisibility] = useState(false);
+    const toggleNavVisibility = () => {
+        setNavVisibility(!isNavVisible);
+    };
 
     useState(() => {
         fetch('http://localhost:3001/posts')
@@ -47,8 +51,26 @@ const Header = () => {
                         >Booking</a></li>
                     </ul>
                 </nav>
-
             </header>
+
+            {/* phone screen nav and toggle */}
+            <div className={isNavVisible ? 'nav-phone-screen' : 'nav-phone-screen hidden'}>
+                <ul >
+                    <li><NavLink className='phone-screen-link' onClick={toggleNavVisibility} to='/'>Home</NavLink></li>
+                    <li><NavLink className='phone-screen-link' onClick={toggleNavVisibility} to='/public/blog'>Blog</NavLink></li>
+                    <li><NavLink className='phone-screen-link' onClick={toggleNavVisibility} to='/public/accommodation'>Accommodation</NavLink></li>
+                    <li><a
+                        onClick={toggleNavVisibility}
+                        className='phone-screen-link'
+                        href='https://bookings8.rmscloud.com/Search/Index/f1e238f9670c6dcf/1/'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >Booking</a></li>
+                </ul>
+            </div>
+            <div className='menu-phone-screen'>
+                <button className='menu-toggle-button' onClick={toggleNavVisibility}>MENU</button>
+            </div>
 
             {/* route */}
             <Routes>

@@ -24,7 +24,6 @@ const AccommodationCard = ({ property }) => {
             <DirectionsCarOutlinedIcon /><p className='accommodation-page-card-facilitie'> {property.toliet}</p>
           </div>
           <p className='accommodation-page-card-textline'>address: {property.address}</p>
-          {console.log(property)}
         </div>
       </div>
     </Link>

@@ -55,7 +55,7 @@ const BlogCreate = () => {
         <p>/*Create a new article or select an existing one to edit from the left.</p>
         <form className='blog-create-form' onSubmit={handleSubmit}>
             <div>
-              <label htmlFor='title'>title:</label>
+              <label className='required-input' htmlFor='title'>title:</label>
             </div>
             <div>
               <div>
@@ -71,7 +71,7 @@ const BlogCreate = () => {
               </div>
             </div>
             <div>
-              <label htmlFor='author'>author:</label>
+              <label className='required-input' htmlFor='author'>author:</label>
             </div>
             <div>
               <textarea
@@ -85,7 +85,7 @@ const BlogCreate = () => {
               ></textarea>
             </div>
             <div>
-              <label htmlFor='content'>content:</label>
+              <label className='required-input' htmlFor='content'>content:</label>
             </div>
             <div>
               <textarea

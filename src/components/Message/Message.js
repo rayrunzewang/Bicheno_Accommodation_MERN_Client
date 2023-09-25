@@ -1,12 +1,10 @@
 import React from 'react'
 import Button from '../Button/Button'
 import './Message.css'
-import { useNavigate } from 'react-router-dom';
 
 
 
 const Message = (props) => {
-    const navigate = useNavigate();
 
     const refresh = () => {
         window.location.reload();

@@ -12,6 +12,7 @@ html {
 }
 
 body {
+  font-size: var(--font-size-small);
   width: 100%;
   margin: 0;
   padding: 0;
@@ -68,6 +69,12 @@ input, textarea {
 
 textarea {
   resize: none;
+}
+
+input:focus,textarea:focus {
+  border: 2px solid #3498db; 
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); 
 }
 
 button {

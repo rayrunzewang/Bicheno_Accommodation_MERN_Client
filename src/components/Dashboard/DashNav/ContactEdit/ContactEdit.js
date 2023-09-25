@@ -86,7 +86,7 @@ const ContactEdit = () => {
       {/* ------ Contact Edit Form ------ */}
       <form className='contact-edit-container' onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='phoneNumber'>Phone Number 1:</label>
+          <label  className='required-input' htmlFor='phoneNumber'>Phone Number 1:</label>
         </div>
         <div>
           <input
@@ -99,7 +99,7 @@ const ContactEdit = () => {
           />
         </div>
         <div>
-          <label htmlFor='alternativePhoneNumber'>Phone Number 2:</label>
+          <label  className='required-input' htmlFor='alternativePhoneNumber'>Phone Number 2:</label>
         </div>
         <div>
           <input
@@ -111,7 +111,7 @@ const ContactEdit = () => {
           />
         </div>
         <div>
-          <label htmlFor='address'>Address:</label>
+          <label  className='required-input' htmlFor='address'>Address:</label>
         </div>
         <div>
           <input
@@ -123,7 +123,7 @@ const ContactEdit = () => {
           />
         </div>
         <div>
-          <label htmlFor='email'>Email:</label>
+          <label  className='required-input' htmlFor='email'>Email:</label>
         </div>
         <div>
           <input
@@ -136,7 +136,7 @@ const ContactEdit = () => {
           />
         </div>
         <div>
-          <label htmlFor='facebookURL'>facebookURL:</label>
+          <label  className='required-input' htmlFor='facebookURL'>facebookURL:</label>
         </div>
         <div>
           <input
@@ -149,7 +149,7 @@ const ContactEdit = () => {
           />
         </div>
         <div>
-          <label htmlFor='instagramURL'>instagramURL:</label>
+          <label  className='required-input' htmlFor='instagramURL'>instagramURL:</label>
         </div>
         <div>
           <input

@@ -4,11 +4,11 @@
 
 .blog-page-title {
     text-align: center;
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-xLarge);
 }
 
 .blog-page-container {
-    font-size: 18px;
+    font-size: var(--font-size-small);
     margin: 10px auto;
     width: 500px;
     padding: 10px;
@@ -26,10 +26,9 @@
 }
 
 
-
 .blog-page-post-title {
     font-weight: 600;
-    font-size: 25px;
+    font-size: var(--font-size-large);
 }
 
 .blog-page-post-title:hover {
@@ -37,6 +36,6 @@
 }
 
 .blog-page-post-author {
-    font-size: 16px;
+    font-size: var(--font-size-xSmall);
     color: var(--text-color);
 }

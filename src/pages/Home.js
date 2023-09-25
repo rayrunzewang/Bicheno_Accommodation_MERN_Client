@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import videoBg from '../assets/homepage-video.mp4';
+import logoBackground from '../assets/logo-background.jpg';
 import Button from '../components/Button/Button';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -101,6 +102,11 @@ function Home() {
                 <video autoPlay loop muted className='home-video' >
                     <source src={videoBg} type='video/mp4' />
                 </video>
+            </div>
+
+            {/* ------ Video Background ------ */}
+            <div className='home-phone-screen'>
+                <img className='home-background-image' src={logoBackground} alt="logoBackground" />
             </div>
 
             {/* ------ Social Media Icons ------ */}

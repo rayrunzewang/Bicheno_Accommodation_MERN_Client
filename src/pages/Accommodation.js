@@ -23,7 +23,6 @@ function Accommodation() {
                         ))
                     )}
                 </div>
-
             </div>
         </div>
     )

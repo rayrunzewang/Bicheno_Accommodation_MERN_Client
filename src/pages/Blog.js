@@ -17,7 +17,6 @@ function Blog() {
             <h2 className='blog-page-title'>Article List</h2>
             <div className='blog-page-container'>
                 <ul>
-
               
                     {  !Array.isArray(posts) || posts.length === 0 ? (
                         <p>No Blog posts available.</p>

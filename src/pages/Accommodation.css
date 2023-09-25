@@ -4,7 +4,7 @@
 
 .accommodation-page-title {
     text-align: center;
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-xLarge);
 }
 
 .accommodation-page-container {
@@ -16,7 +16,7 @@
 }
 
 .accommodation-page-card {
-    height: 350px;
+    min-height: 350px;
     background-color: #fff; 
     border: 1px solid #ddd; 
     border-radius: 10px;

@@ -1,12 +1,12 @@
 .dashboard {
-    background: rgb(224, 223, 223);
+    background: var(--grey);
 }
 
 .logout-btn {
     margin-top: 10px;
     margin-left: 20px;
     color: #fff;
-    background: rgb(95, 166, 194);
+    background: var(--light-blue);
 }
 
 .dashboard-container {
@@ -24,11 +24,11 @@
     font-size: 30px;
     margin: 10px;
     text-align: center;
-    color: rgb(95, 166, 194);
+    color: var(--light-blue);
 }
 
 .dashboard-item {
-    font-size: 18px;
+    font-size: var(--font-size-small);
     text-align: center; 
     width: 100%;
     border-right: 2px dashed rgb(128, 128, 128);

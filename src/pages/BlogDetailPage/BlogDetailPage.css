@@ -23,17 +23,19 @@
 
 .blog-detail-title {
     text-align: center;
-    font-size: var(--font-size-large);
-    margin: 10px 0;
+    font-size: #707070;
+    margin: 30px 0;
 }
 
 .blog-detail-author {
+    color: var(  --text-color);
     text-align: left;
-    margin: 10px 0;
+    margin: 30px 0;
 }
 
 .blog-detail-content {
     text-align: left;
-    font-size: 24px;
+    font-size:var(--font-size-medium);
     margin: 10px 0;
+    font-family: 'Poppins', sans-serif;
 }

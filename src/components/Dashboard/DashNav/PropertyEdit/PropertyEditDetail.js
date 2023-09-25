@@ -224,11 +224,11 @@ const PropertyEditDetail = (props) => {
                             <input className='property-edit-title' id='property-edit-title' type="text" placeholder='Title (required*)' value={property.title} required onChange={(e) => setProperty({ ...property, title: e.target.value })} />
                         </div>
                         <div className='property-edit-facilities'>
-                                <label htmlFor="property-edit-bed">bed</label>
+                                <label className='required-input' htmlFor="property-edit-bed">bed</label>
                                 <input className='property-edit-bed' id='property-edit-bed' type='number' min='0' value={property.bed} required onChange={(e) => setProperty({ ...property, bed: e.target.value })} />
-                                <label htmlFor="property-edit-toliet">toliet</label>
+                                <label className='required-input' htmlFor="property-edit-toliet">toliet</label>
                                 <input className='property-edit-toliet' id='property-edit-toliet' type='number' min='0' value={property.toliet} required onChange={(e) => setProperty({ ...property, toliet: e.target.value })} />
-                                <label htmlFor="property-edit-carspace">car space</label>
+                                <label className='required-input' htmlFor="property-edit-carspace">car space</label>
                                 <input className='property-edit-carspace' id='property-edit-carspace' type='number' min='0' value={property.carspace} required onChange={(e) => setProperty({ ...property, carspace: e.target.value })} />
                         </div>
                         <div>

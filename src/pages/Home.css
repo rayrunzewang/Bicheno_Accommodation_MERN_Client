@@ -22,6 +22,10 @@
     transform: translate(-50%, -50%);
 }
 
+.home-phone-screen {
+    display: none;
+}
+
 /* ------ Banner ------ */
 .banner {
     height: 100vh;
@@ -51,11 +55,11 @@
 .banner-accommodation {
     text-align: center;
     font-weight: 800;
-    line-height: 1rem;
+    line-height: var(--font-size-small);
     text-decoration: none;
     display: inline-block;
     color: #fff;
-    font-size: 25px;
+    font-size: var(--font-size-large);
     letter-spacing: 6px;
     padding: 0px;
     border-radius: 15px;
@@ -67,12 +71,12 @@
     position: absolute;
     right: 5%;
     top: 150px;
+    color: #fff;
 }
 
 .home-my-facebook-icon,
 .home-my-instagram-icon {
-    margin-right: 5px;
-    color: #fff;
+    margin-right: 10px;
     transition: all 0.5s;
     animation: shake 2s;
     animation-iteration-count: infinite;
@@ -181,7 +185,7 @@
     text-decoration: none;
     color: white;
     margin: 0px auto;
-    font-size: 18px;
+    font-size: var(--font-size-small);
 }
 
 .home-scroll-down-button:hover {
@@ -223,7 +227,7 @@
 }
 
 .home-carousel-image-container {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
 }
@@ -254,7 +258,7 @@
     top: 50%;
     transform: translate(-0%, -50%);
     left: 0px;
-    font-size: 40px;
+    font-size: var(--font-size-xxLarge);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 10px;
@@ -268,7 +272,7 @@
     top: 50%;
     transform: translate(0%, -50%);
     right: 0px;
-    font-size: 40px;
+    font-size: var(--font-size-xxLarge);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     padding: 10px;
@@ -287,7 +291,7 @@
 
 
 .home-carousel-slide {
-    font-size: 20px;
+    font-size: var(--font-size-medium);
     cursor: pointer;
     color: rgba(255, 255, 255, 0.9);
     position: absolute;
@@ -340,3 +344,58 @@
     display: block;
 }
 
+@media (max-width: 992px) {
+    .home-main {
+        display: block;
+    }
+
+    .home-carousel-container {
+        width: 100%;
+    }
+
+    .home-welcome-container {
+        width: 100%;
+    }
+
+    
+    .home-contact-form-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    .home-video-container {
+        display: none;
+    }
+
+    .home-phone-screen {
+        display: block;
+    }
+
+    .home-background-image {
+        width: 100%;
+    }
+
+    .home-social-media {
+        right: auto;
+        left: 5%;
+        top: 10px;
+        color: var(--dark-blue);
+    }
+
+    .home-main {
+        width: 90%;
+    }
+
+    .banner {
+       display: none;
+    }
+    
+    .home-scroll-down {
+        display: none;
+    }
+
+    .home-contact-form-container {
+        width: 100%;
+    }
+}
