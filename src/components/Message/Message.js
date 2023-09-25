@@ -10,7 +10,7 @@ const Message = (props) => {
 
     const refresh = () => {
         window.location.reload();
-        navigate('/private/dashboard');
+        // navigate('/private/dashboard');
     }
     return (
         <div className='custom-message'>

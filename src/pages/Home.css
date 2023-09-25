@@ -1,5 +1,5 @@
-/* Video Background */
-.video-container {
+/* ------ Video Background ------ */
+.home-video-container {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -9,7 +9,7 @@
     z-index: -1;
 }
 
-.video {
+.home-video {
     position: absolute;
     left: 0;
     top: 0;
@@ -22,7 +22,7 @@
     transform: translate(-50%, -50%);
 }
 
-/* Banner - Bicheno Accommodation */
+/* ------ Banner ------ */
 .banner {
     height: 100vh;
     display: flex;
@@ -62,15 +62,15 @@
     transition: 0.5s;
 }
 
-/* social-media */
-.social-media {
+/* ------ social media icons ------ */
+.home-social-media {
     position: absolute;
     right: 5%;
     top: 150px;
 }
 
-.my-facebook-icon,
-.my-instagram-icon {
+.home-my-facebook-icon,
+.home-my-instagram-icon {
     margin-right: 5px;
     color: #fff;
     transition: all 0.5s;
@@ -134,24 +134,24 @@
     }
 }
 
-.my-facebook-icon:hover,
-.my-instagram-icon:hover {
+.home-my-facebook-icon:hover,
+.home-my-instagram-icon:hover {
     color: var(--dark-blue);
 }
 
-/* Scroll Down Button  */
-.scroll-down-button {
+/* ------ Scroll Down Button  ------ */
+.home-scroll-down-button {
     position: absolute;
     bottom: 50px;
     left: 5%;
     z-index: 0;
 }
 
-.scroll-down-arrow {
+.home-scroll-down-arrow {
     margin: 0px auto;
 }
 
-.scroll-down-arrow span {
+.home-scroll-down-arrow span {
     display: block;
     width: 30px;
     height: 30px;
@@ -163,19 +163,19 @@
     z-index: 0;
 }
 
-.scroll-down-arrow span:nth-child(1) {
+.home-scroll-down-arrow span:nth-child(1) {
     animation-delay: -0.2s;
 }
 
-.scroll-down-arrow span:nth-child(2) {
+.home-scroll-down-arrow span:nth-child(2) {
     animation-delay: -0.4s;
 }
 
-.scroll-down-arrow span:nth-child(3) {
+.home-scroll-down-arrow span:nth-child(3) {
     animation-delay: -0.6s;
 }
 
-.scroll-down-detail {
+.home-scroll-down-detail {
     position: relative;
     left: 18px;
     text-decoration: none;
@@ -184,7 +184,7 @@
     font-size: 18px;
 }
 
-.scroll-down-button:hover {
+.home-scroll-down-button:hover {
     color: var(--grey) !important;
     text-decoration: underline !important;
 }
@@ -205,32 +205,32 @@
     }
 }
 
-.home-page-main {
+.home-main {
     width: 80%;
     margin: 10px auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
-.home-page-carousel-container {
+.home-carousel-container {
     width: 60%;
 }
 
-.home-page-carousel-title {
+.home-carousel-title {
     width: fit-content;
     margin: 20px auto;
 }
 
-.home-page-carousel-image-container {
-    width: 600px;
-    margin: 20px auto 0;
+.home-carousel-image-container {
+    width: 90%;
+    margin: 0 auto;
     position: relative;
 }
 
-.home-page-carousel-image {
-    width: 600px;
-    height: 400px;
+.home-carousel-image {
+    width: 100%;
+    aspect-ratio: 3/2;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-position: center;
@@ -238,23 +238,18 @@
     transition-duration: 0.5s;
 }
 
-.home-page-carousel-description {
-    width: 600px;
+.home-carousel-description {
+    padding: 10px;
+    margin: 0 auto;
+    width: 100%;
     height: 100px;
+    background-color: var(--light-grey);
+    border: 1px solid #ccc;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: var(--light-grey);
-    padding: 4px;
-    border: 1px solid #ccc;
-    margin: 0 auto;
 }
 
-.home-page-carousel-loading {
-    text-align: center;
-    margin: 10px;
-}
-
-.home-page-carousel-image-left-arrow {
+.home-carousel-image-left-arrow {
     position: absolute;
     top: 50%;
     transform: translate(-0%, -50%);
@@ -268,7 +263,7 @@
     cursor: pointer;
 }
 
-.home-page-carousel-image-right-arrow {
+.home-carousel-image-right-arrow {
     position: absolute;
     top: 50%;
     transform: translate(0%, -50%);
@@ -282,7 +277,7 @@
     cursor: pointer;
 }
 
-.home-page-carousel-image-nav {
+.home-carousel-image-nav {
     display: flex;
     justify-content: center;
     position: relative;
@@ -291,55 +286,56 @@
 }
 
 
-.home-page-carousel-slide {
+.home-carousel-slide {
     font-size: 20px;
     cursor: pointer;
     color: rgba(255, 255, 255, 0.9);
     position: absolute;
 }
 
-.home-page-welcome-container {
-    width: 30%;
+.home-welcome-container {
+    width: 35%;
+    text-align: center;
 }
 
-.home-page-welcome-title {
+.home-welcome-title {
     width: fit-content;
     margin: 20px auto;
 }
 
-.home-page-welcome {
+.home-welcome {
     background: var(--light-grey);
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px;
 }
 
-.contact-form-container {
+.home-contact-form-container {
     width: 80%;
     margin: 30px auto;
 }
 
-.contact-form-title {
+.home-contact-form-title {
     margin: 20px auto;
     text-align: center;
 }
 
-.contact-form {
+.home-contact-form {
     padding: 30px 50px;
     width: 90%;
     border: 1px solid #ccc;
     border-radius: 15px;
     background: var(--light-grey);
-    margin: 10px auto;
+    margin: 0px auto;
 }
 
-.contact-form * {
+.home-contact-form * {
     width: 100%;
     margin-bottom: 10px;
     display: block;
 }
 
-.contact-form button {
+.home-contact-form button {
     margin: 20px auto 0px;
     display: block;
 }
