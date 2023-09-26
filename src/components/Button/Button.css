@@ -1,6 +1,6 @@
 .custom-button {
     margin-top: 10px;
-    background: rgb(95, 166, 194);
+    background: var(--light-blue);
     color: #fff;
     padding: 10px 20px;
     display: block;

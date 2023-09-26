@@ -1,13 +1,13 @@
 .login {
-  color: rgb(95, 166, 194);
+  color: var(--light-blue);
   margin: 200px auto 0;
   text-align: center;
-  border: 1px solid rgb(95, 166, 194);
+  border: 1px solid var(--light-blue);
   border-radius: 10px;
   width: fit-content;
   padding: 20px;
   background-color: #fff;
-  box-shadow: 5px 5px 5px rgb(95, 166, 194);
+  box-shadow: 5px 5px 5px var(--light-blue);
 }
 
 .login div {
@@ -16,11 +16,11 @@
 
 .login-button {
   color: #fff;
-  background: rgb(95, 166, 194);
+  background: var(--light-blue);
 }
 
 .login-button:hover {
-  background-color: #5583b4;
+  background-color: var(--primary-color);
 }
 
 .login-button:active {

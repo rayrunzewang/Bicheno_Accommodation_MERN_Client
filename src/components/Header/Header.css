@@ -1,4 +1,4 @@
-/* header  */
+/* ------ header ------ */
 .page-header {
   background-color: var(--primary-color);
   color: white;
@@ -14,14 +14,14 @@
   z-index: 1;
 }
 
-.page-header .logo {
+.page-header .logo-container {
   margin-right: 50px;
   width: 30%;
   min-width: 80px;
   overflow: hidden;
 }
 
-/* nav */
+/* ------ nav ------ */
 .nav-logo {
   height: 80px;
   display: block;
@@ -58,26 +58,36 @@ nav {
   text-decoration: underline 2px var(--light-grey);
 }
 
+/* ------ small screen nav. hiddern ----- */
 .nav-phone-screen {
   display: none;
 }
 
+/* ------ small screen imgBg. hiddern ------ */
+.image-background-phone-screen {
+  display: none;
+}
+
+.home-background-image {
+  width: 100%;
+}
+
+/* ------ small screen toogle hiddern ----- */
 .menu-toggle-button {
   display: none;
 }
 
+/* ------ medium screen layout ------ */
 @media (max-width: 992px) {
+
+  /* ------ medium screen header layout ----- */
   .page-header {
     padding-inline: 0;
     height: 60px;
   }
 
-  .nav-logo {
-    height: 60px;
-    display: block;
-  }
-
-  .page-header .logo {
+  /* ------ medium screen logo layout ----- */
+  .page-header .logo-container {
     height: 60px;
     margin-right: 10px;
     width: 30%;
@@ -85,20 +95,28 @@ nav {
     overflow: hidden;
   }
 
-  .page-header nav .user-container li .nav-link {
-    margin-right: 10px;
+  .nav-logo {
+    height: 60px;
+    display: block;
   }
 
+  /* ------ medium screen nav layout ----- */
   nav {
     width: 70%;
   }
+
+  .page-header nav .user-container li .nav-link {
+    margin-right: 10px;
+  }
 }
 
+/* ------ small Screen screen layout ------ */
 @media (max-width: 576px) {
-  .page-header{
+  .page-header {
     display: none;
   }
 
+/* ------ Small Screen Menu layout ------ */
   .nav-phone-screen {
     background-color: rgba(70, 70, 70, 0.8);
     display: block;
@@ -134,6 +152,7 @@ nav {
     text-decoration: underline 2px white;
   }
 
+  /* ------ small screen menu toggle button ------ */
   .menu-toggle-button {
     font-size: var(--font-size-large);
     display: block;
@@ -146,5 +165,10 @@ nav {
     background: #fff;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
+  }
+
+   /* ------ small screen imgBG layout ------ */
+   .image-background-phone-screen {
+    display: block;
   }
 }

@@ -21,7 +21,7 @@
 }
 
 .dashboard-title {
-    font-size: 30px;
+    font-size: var(--font-size-xLarge);
     margin: 10px;
     text-align: center;
     color: var(--light-blue);

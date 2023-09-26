@@ -54,8 +54,8 @@ const PropertyPage = (props) => {
             callback: function (pdf) {
                 pdf.save(`document.pdf`);
             },
-            margin: [10,20,10,20],
-            autoPaging:'text'
+            margin: [10, 20, 10, 20],
+            autoPaging: 'text'
         });
     };
 
@@ -120,12 +120,18 @@ const PropertyPage = (props) => {
                         style={{ backgroundImage: `url(http://localhost:3001/${slides[currentIndex].image_url.replace(/\\/g, '/')})` }}
                         className='property-detail-image'>
                     </div>
-                    <div className='property-detial-image-left-arrow' onClick={() => handleSlideChange((currentIndex - 1 + slides.length) % slides.length)}
-                        size={30}>
+                    <div
+                        className='property-detial-image-left-arrow'
+                        onClick={() => handleSlideChange((currentIndex - 1 + slides.length) % slides.length)}
+                        size={30}
+                    >
                         <BsChevronCompactLeft />
                     </div>
-                    <div className='property-detial-image-right-arrow' onClick={() => handleSlideChange((currentIndex + 1) % slides.length)}
-                        size={30}>
+                    <div
+                        className='property-detial-image-right-arrow'
+                        onClick={() => handleSlideChange((currentIndex + 1) % slides.length)}
+                        size={30}
+                    >
                         <BsChevronCompactRight />
                     </div>
 
@@ -141,8 +147,11 @@ const PropertyPage = (props) => {
                         ))}
                     </div>
                 </div>
-                <div className='property-detail-downloandpdf-button'>
-                    <button  onClick={generatePDF} type="button">Export PDF</button>
+                <div className='property-detail-button'>
+                    <button onClick={generatePDF} type="button">Export PDF</button>
+                    <div className='property-detail-book-btn'>
+                        <a className='property-detail-book-link' target='_blank' href={property.link}>Book Now</a>
+                    </div>
                 </div>
                 <div className='property-detail-facilities-container'>
                     <p className='property-detail-facilities'>Bed: {property.bed}, Toliet: {property.toliet}, Car Space: {property.carspace}</p>

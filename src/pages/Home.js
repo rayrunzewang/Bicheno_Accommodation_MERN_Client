@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import videoBg from '../assets/homepage-video.mp4';
-import logoBackground from '../assets/logo-background.jpg';
 import Button from '../components/Button/Button';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -104,11 +103,6 @@ function Home() {
                 </video>
             </div>
 
-            {/* ------ Video Background ------ */}
-            <div className='home-phone-screen'>
-                <img className='home-background-image' src={logoBackground} alt="logoBackground" />
-            </div>
-
             {/* ------ Social Media Icons ------ */}
             <div className='home-social-media' >
                 <a
@@ -163,6 +157,8 @@ function Home() {
                             style={{ backgroundImage: `url(http://localhost:3001/${slides[currentIndex].images[0].image_url.replace(/\\/g, '/')})` }}
                             className='home-carousel-image'>
                         </div>}
+                        
+                        {console.log(slides[currentIndex])}
 
                         {slides && slides.length > 0 && <div className='home-carousel-image-left-arrow' onClick={() => handleSlideChange((currentIndex - 1 + slides.length) % slides.length)}
                             size={30}>
@@ -235,11 +231,9 @@ function Home() {
                             setFailMessage(false);
                         }}
                     />
-
                 </form>
                 {successMessage && <Message message={'Email send successfully, click Ok to reload the page'} />}
             </div>
-
         </div >
     )
 }

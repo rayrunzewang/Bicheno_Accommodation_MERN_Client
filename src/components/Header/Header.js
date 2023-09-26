@@ -4,6 +4,7 @@ import Home from '../../pages/Home.js';
 import Blog from '../../pages/Blog';
 import Accommodation from '../../pages/Accommodation';
 import logo from '../../assets/logo.jpg';
+import logoBackground from '../../assets/logo-background.jpg';
 import PropertyPage from '../../pages/PropertyPage/PropertyPage';
 import BlogDetailPage from '../../pages/BlogDetailPage/BlogDetailPage';
 import './Header.css'
@@ -34,7 +35,7 @@ const Header = () => {
 
             {/* header */}
             <header className='page-header'>
-                <div className='logo'>
+                <div className='logo-container'>
                     <img className='nav-logo' src={logo} alt='Bicheno Accommodation Business Logo' />
                 </div>
                 {/* nav */}
@@ -52,6 +53,11 @@ const Header = () => {
                     </ul>
                 </nav>
             </header>
+
+            {/* ------ Phone Screen Image Background ------ */}
+            <div className='image-background-phone-screen'>
+                <img className='home-background-image' src={logoBackground} alt="logoBackground" />
+            </div>
 
             {/* phone screen nav and toggle */}
             <div className={isNavVisible ? 'nav-phone-screen' : 'nav-phone-screen hidden'}>

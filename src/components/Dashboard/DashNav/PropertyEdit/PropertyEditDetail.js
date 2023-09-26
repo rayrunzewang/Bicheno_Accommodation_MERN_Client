@@ -162,6 +162,7 @@ const PropertyEditDetail = (props) => {
         formData.append('toliet', property.toliet);
         formData.append('carspace', property.carspace);
         formData.append('description', property.description);
+        formData.append('link', property.link);
 
         axios
             .put(`http://localhost:3001/property/${props.property}`, formData, {
@@ -235,8 +236,12 @@ const PropertyEditDetail = (props) => {
                             <input className='property-edit-address' id='property-edit-address' type="text" placeholder='Address (required*)' value={property.address} required onChange={(e) => setProperty({ ...property, address: e.target.value })} />
                         </div>
                         <div>
+                            <textarea className='property-edit-link' id='property-edit-link' type="text" placeholder='Booking Link (required*)' value={property.link} cols="30" rows="10" required onChange={(e) => setProperty({ ...property, link: e.target.value })} />
+                        </div>
+                        <div>
                             <textarea className='property-edit-description' id='property-edit-description' type="text" placeholder='Description (required*)' value={property.description} cols="30" rows="10" required onChange={(e) => setProperty({ ...property, description: e.target.value })} />
                         </div>
+                        
                         <div className='images-edit-upload-area'
                             onDrop={handleDrop}
                             onDragOver={(e) => e.preventDefault()}
@@ -249,14 +254,14 @@ const PropertyEditDetail = (props) => {
                             {selectedFiles.map((file, index) => (
                                 <div
                                     key={index}
-                                    className='image-div'
+                                    className='image-edit-div'
                                     draggable
                                     onDragStart={(e) => handleImageDragStart(e, index)}
                                     onDragOver={(e) => e.preventDefault()}
                                     onDrop={(e) => handleImageDrop(e, index)}
                                 >
-                                    <img className='images-selected-image' src={imagePreviews[index]} alt={file.name} />
-                                    <button type='button' className='images-selected-image-delete' onClick={() => handleDelete(index)} >
+                                    <img className='images-edit-selected-image' src={imagePreviews[index]} alt={file.name} />
+                                    <button type='button' className='images-edit-selected-image-delete' onClick={() => handleDelete(index)} >
                                         &times;
                                     </button>
                                 </div>
@@ -266,7 +271,7 @@ const PropertyEditDetail = (props) => {
                     <Button label='Save' />
                 </form>
                 <Button onClick={handleDeleteProperty} label='Delete' />
-                {successMessage && <Message message={'Updated secessfully, click Ok to reload the page'} />}
+                {successMessage && <Message message={'Updated successfully, click Ok to reload the page'} />}
                 {failMessage && <Message message={'Updated failed, an error occurred'} />}
             </div>
 

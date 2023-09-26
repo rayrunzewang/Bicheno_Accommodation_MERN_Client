@@ -11,7 +11,8 @@
 }
 
 .property-create-form {
-    width: 500px;
+    width: 90%;
+    min-width: 400px;
 }
 
 .property-create-facilities {
@@ -126,6 +127,12 @@
 }
 
 .property-description {
+    width: 100%;
+    margin: 10px 0;
+    resize: none;
+}
+
+.property-link {
     width: 100%;
     margin: 10px 0;
     resize: none;

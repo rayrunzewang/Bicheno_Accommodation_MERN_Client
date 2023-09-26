@@ -9,6 +9,7 @@ function PropertiesEdit() {
   const [title, setTitle] = useState('');
   const [address, setAddress] = useState('');
   const [description, setDescription] = useState('');
+  const [link, setLink] = useState('');
   const [bed, setBed] = useState('');
   const [toliet, setToliet] = useState('');
   const [carspace, setCarSpace] = useState('');
@@ -131,6 +132,7 @@ function PropertiesEdit() {
     formData.append('title', title);
     formData.append('address', address);
     formData.append('description', description);
+    formData.append('link', description);
     formData.append('bed', bed);
     formData.append('toliet', toliet);
     formData.append('carspace', carspace);
@@ -148,6 +150,7 @@ function PropertiesEdit() {
           setTitle('');
           setAddress('');
           setDescription('');
+          setLink('');
           setBed('');
           setToliet('');
           setCarSpace('');
@@ -187,7 +190,7 @@ function PropertiesEdit() {
               <input className='property-create-carspace' type="number" id='property-create-carspace' min="0" value={carspace} required onChange={(e) => setCarSpace(e.target.value)} />
           </div>
           <input className='property-address-input' type="text" placeholder="Address (required*)" value={address} name="address" id="address" required onChange={(e) => setAddress(e.target.value)}></input>
-
+          <textarea className='property-link' placeholder="Booking Link (required*)" value={link} name="link" id="link" cols="30" rows="10" required onChange={(e) => setLink(e.target.value)}></textarea>
           <textarea className='property-description' placeholder="Description (required*)" value={description} name="description" id="description" cols="30" rows="10" required onChange={(e) => setDescription(e.target.value)}></textarea>
 
           {/* ------------ Upload Button *deprecated ------------ */}
@@ -228,7 +231,7 @@ function PropertiesEdit() {
           </div>
         <Button label='Upload' />
       </form>
-      {isSaved && <Message message={'Updated secessfully, click Ok to reload the page'} />}
+      {isSaved && <Message message={'Updated successfully, click Ok to reload the page'} />}
       {isError && <Message message={'Updated failed, an error occurred'} />}
     </div>
   );

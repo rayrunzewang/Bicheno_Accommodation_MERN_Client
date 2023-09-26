@@ -11,7 +11,8 @@
 }
 
 .property-edit-form {
-    width: 500px;
+    width: 90%;
+    min-width: 400px;
 }
 
 .property-edit-title {
@@ -94,7 +95,7 @@
     overflow: auto;
 }
 
-.image-create-div {
+.image-edit-div {
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
@@ -104,15 +105,11 @@
     position: relative;
 }
 
-.image-create-div:hover {
-    cursor: pointer;
-}
-
-.images-create-selected-image {
+.images-edit-selected-image {
     height: 80px;
 }
 
-.images-create-selected-image-delete {
+.images-edit-selected-image-delete {
     width: 15px;
     height: 15px;
     font-size: 15px;
@@ -127,21 +124,18 @@
     opacity: 0.5;
 }
 
-.images-create-selected-image-delete:hover {
-    opacity: 1;
-}
 
-.property-title-input {
-    width: 100%;
-    margin-bottom: 10px;
-}
 
-.property-address-input {
-    width: 100%;
-    margin-bottom: 10px;
-}
 
-.property-description {
+
+
+
+
+
+
+
+
+.property-edit-link {
     width: 100%;
     margin: 10px 0;
     resize: none;
