@@ -5,6 +5,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 import { GoDot, GoDotFill } from 'react-icons/go';
+import { Link } from 'react-router-dom';
 import Message from '../components/Message/Message';
 import './Home.css';
 
@@ -153,11 +154,14 @@ function Home() {
                     <h2 className='home-carousel-title'>Our Accommodation</h2>
 
                     <div className='home-carousel-image-container'>
-                        {slides && slides.length > 0 && <div
-                            style={{ backgroundImage: `url(http://localhost:3001/${slides[currentIndex].images[0].image_url.replace(/\\/g, '/')})` }}
-                            className='home-carousel-image'>
-                        </div>}
-                        
+                        {slides && slides.length > 0 &&
+                            <Link className='home-carousel-image-link' to={`/public/${slides[currentIndex]._id}`} >
+                                <div
+                                    style={{ backgroundImage: `url(http://localhost:3001/${slides[currentIndex].images[0].image_url.replace(/\\/g, '/')})` }}
+                                    className='home-carousel-image'>
+                                </div>
+                            </Link>
+                        }
                         {console.log(slides[currentIndex])}
 
                         {slides && slides.length > 0 && <div className='home-carousel-image-left-arrow' onClick={() => handleSlideChange((currentIndex - 1 + slides.length) % slides.length)}
@@ -183,8 +187,10 @@ function Home() {
                         <div className='home-carousel-description'>
                             {slides && slides.length > 0 ? (
                                 <div>
-                                    <p className='home-carousel-text'>{slides[currentIndex].title}</p>
-                                    <p className='home-carousel-text'>Bed:{slides[currentIndex].title}, Toliet:{slides[currentIndex].toliet}, Car Space:{slides[currentIndex].carspace}</p>
+                                    <Link className='home-carousel-image-link' to={`/public/${slides[currentIndex]._id}`} >
+                                        <p className='home-carousel-description-title'>{slides[currentIndex].title}</p>
+                                    </Link>
+                                    <p className='home-carousel-description-text'>Bed:{slides[currentIndex].bed}, Toliet:{slides[currentIndex].toliet}, Car Space:{slides[currentIndex].carspace}</p>
                                 </div>
                             )
                                 : (<p className='home-carousel-loading'>Loading...</p>)}

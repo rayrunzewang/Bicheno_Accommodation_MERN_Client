@@ -227,7 +227,15 @@
     width: 600px;
     margin: 0 auto;
     position: relative;
+
 }
+
+.home-carousel-image-link {
+    display: block;
+    overflow: hidden;
+}
+
+
 
 .home-carousel-image {
     width: 600px;
@@ -237,6 +245,10 @@
     background-position: center;
     background-size: cover;
     transition-duration: 0.5s;
+}
+
+.home-carousel-image:hover {
+    transform: scale(1.2);
 }
 
 .home-carousel-description {
@@ -249,6 +261,19 @@
     border: 1px solid #ccc;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.home-carousel-description-title {
+    margin-bottom: 10px;
+    color: black;
+}
+
+.home-carousel-description-title:hover {
+    text-decoration: underline;
+}
+
+.home-carousel-description-text {
+    font-size: var(--font-size-xSmall);
 }
 
 .home-carousel-image-left-arrow {

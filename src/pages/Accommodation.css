@@ -32,6 +32,10 @@
   transform: translateY(-10px);
 }
 
+.accommodation-page-card:hover .accommodation-page-card-title {
+  text-decoration: underline;
+}
+
 .accommodation-page-image-wrap {
   border-bottom: 1px solid #ddd;
   width: 100%;

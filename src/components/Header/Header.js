@@ -7,6 +7,8 @@ import logo from '../../assets/logo.jpg';
 import logoBackground from '../../assets/logo-background.jpg';
 import PropertyPage from '../../pages/PropertyPage/PropertyPage';
 import BlogDetailPage from '../../pages/BlogDetailPage/BlogDetailPage';
+import {FiMenu} from 'react-icons/fi'
+import {IoClose} from 'react-icons/io5'
 import './Header.css'
 
 const Header = () => {
@@ -75,7 +77,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className='menu-phone-screen'>
-                <button className='menu-toggle-button' onClick={toggleNavVisibility}>MENU</button>
+                <div className='menu-toggle-button' onClick={toggleNavVisibility}>{isNavVisible ?  <IoClose />:<FiMenu /> } </div>
             </div>
 
             {/* route */}

@@ -11,7 +11,6 @@ const AccommodationCard = ({ property }) => {
     <Link className='accommodation-page-card' to={`/public/${property._id}`}>
 
       {/* ------ Card ------ */}
-      
       <div key={property._id}>
         <div className='accommodation-page-image-wrap'>
           <img className='accommodation-page-card-image' src={`http://localhost:3001/${property.images[0].image_url.replace(/\\/g, '/')}`} alt={property.title} />
