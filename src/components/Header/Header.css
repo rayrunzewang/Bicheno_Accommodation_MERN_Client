@@ -127,6 +127,7 @@ nav {
 
   /* ------ Small Screen Menu layout ------ */
   .nav-phone-screen-container {
+    z-index: 1;
     position: absolute;
     top: 60px;
     right: 0;

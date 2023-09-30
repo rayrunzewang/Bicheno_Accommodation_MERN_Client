@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import videoBg from '../assets/homepage-video.mp4';
 import Button from '../components/Button/Button';
+import Message from '../components/Message/Message';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
+import WcRoundedIcon from '@mui/icons-material/WcRounded';
+import DirectionsCarOutlinedIcon from '@mui/icons-material/DirectionsCarOutlined';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 import { GoDot, GoDotFill } from 'react-icons/go';
 import { Link } from 'react-router-dom';
-import Message from '../components/Message/Message';
 import './Home.css';
 
 function Home() {
@@ -33,6 +36,7 @@ function Home() {
         setSlides(properties);
     }, [properties]);
 
+    /* ------ Fetch contact information ------ */
     const getContact = () => {
         fetch('http://localhost:3001/contact', { credentials: 'include' })
             .then(res => res.json())
@@ -49,19 +53,23 @@ function Home() {
             .catch(error => console.error('Properties Fetch Error:', error))
     };
 
+    /* ------ Handle carousel slide change ------ */
     const handleSlideChange = (newIndex) => {
         setCurrentIndex(newIndex);
     };
 
+    /* ------ Go to a specific slide ------ */
     const goToSlide = (slideIndex) => {
         setCurrentIndex(slideIndex);
     }
 
+    /* ------ Handle form input changes ------ */
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
+    /* ------ Handle form submission ------ */
     const handleSubmit = (e) => {
         e.preventDefault();
         setFormSending(true);
@@ -69,6 +77,7 @@ function Home() {
         sendEmail(formData);
     };
 
+    /* ------ Send email using data from the form ------ */
     const sendEmail = async (data) => {
         try {
             const response = await fetch('http://localhost:3001/send-email', {
@@ -162,7 +171,6 @@ function Home() {
                                 </div>
                             </Link>
                         }
-                        {console.log(slides[currentIndex])}
 
                         {slides && slides.length > 0 && <div className='home-carousel-image-left-arrow' onClick={() => handleSlideChange((currentIndex - 1 + slides.length) % slides.length)}
                             size={30}>
@@ -172,6 +180,7 @@ function Home() {
                             size={30}>
                             <BsChevronCompactRight />
                         </div>}
+                        {console.log(slides)}
 
                         <div className='home-carousel-image-nav'>
                             {slides && slides.length > 0 && slides.map((slide, slideIndex) => (
@@ -184,13 +193,21 @@ function Home() {
                                 </div>
                             ))}
                         </div>
+                        
                         <div className='home-carousel-description'>
                             {slides && slides.length > 0 ? (
                                 <div>
                                     <Link className='home-carousel-image-link' to={`/public/${slides[currentIndex]._id}`} >
                                         <p className='home-carousel-description-title'>{slides[currentIndex].title}</p>
                                     </Link>
-                                    <p className='home-carousel-description-text'>Bed:{slides[currentIndex].bed}, Toliet:{slides[currentIndex].toliet}, Car Space:{slides[currentIndex].carspace}</p>
+                                    <div className='home-carousel-description-text'>
+                                        <HotelOutlinedIcon />
+                                        <p>{slides[currentIndex].bed}</p>
+                                        <WcRoundedIcon />
+                                        <p>{slides[currentIndex].toliet}</p>
+                                        <DirectionsCarOutlinedIcon />
+                                        <p>{slides[currentIndex].carspace}</p>
+                                    </div>
                                 </div>
                             )
                                 : (<p className='home-carousel-loading'>Loading...</p>)}

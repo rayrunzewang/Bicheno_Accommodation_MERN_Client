@@ -11,6 +11,7 @@ const PdfComponent = (props) => {
                 <h2 className='pdf-page-title'>{property.title}</h2>
                 <p className='pdf-page-address'>{property.address}</p>
                 <p className='pdf-page-facilities'>Bed:{property.bed}, Toliet:{property.tolie}, Car Space:{property.carspace}</p>
+                
                 {!Array.isArray(property.images) || property.images.length === 0 ? (
                     <p>No accommodations available.</p>
                 ) : (

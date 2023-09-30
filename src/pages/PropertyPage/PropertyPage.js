@@ -53,7 +53,7 @@ const PropertyPage = (props) => {
             callback: function (pdf) {
                 pdf.save(`document.pdf`);
             },
-            margin: [10, 20, 10, 20],
+            margin: [20, 20, 20, 20],
             autoPaging: 'text'
         });
     };
@@ -135,7 +135,7 @@ const PropertyPage = (props) => {
                     </div>
 
                     <div className='property-detial-image-nav'>
-                        {slides.map((slide, slideIndex) => (
+                        {slides && slides.length > 0 && slides.map((slide, slideIndex) => (
                             <div
                                 key={slideIndex}
                                 onClick={() => { goToSlide(slideIndex) }}

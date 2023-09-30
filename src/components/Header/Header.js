@@ -52,7 +52,6 @@ const Header = () => {
     }, []);
     return (
         <div>
-
             {/* header */}
             <header className={`page-header ${scrolling ? 'scrolling' : ''}`} >
                 <div className='logo-container'>
@@ -112,8 +111,6 @@ const Header = () => {
                     <Route key={property._id} path={`/${property._id}`} element={<PropertyPage property={property} />} />
                 ))}
             </Routes>
-
-
         </div>
     );
 };

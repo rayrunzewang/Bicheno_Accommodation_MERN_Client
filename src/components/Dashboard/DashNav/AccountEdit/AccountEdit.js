@@ -41,10 +41,7 @@ const AccountEdit = () => {
       return; // Stop further execution if passwords don't match
     }
 
-    console.log(username);
-
     try {      
-
       const response = await fetch('http://localhost:3001/change-password', {
         method: 'PUT',
         headers: {
@@ -56,7 +53,6 @@ const AccountEdit = () => {
           newPassword,
         }),
       });
-
 
       if (response.ok) {
         setSuccessMessage(true)
@@ -105,10 +101,6 @@ const AccountEdit = () => {
         <Button label='Confirm' />
       </form>
       {successMessage && <Message message={'Password has been successfully changed.'}/>}
-
-
-
-
 
     </div>
   )

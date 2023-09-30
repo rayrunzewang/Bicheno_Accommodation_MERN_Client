@@ -80,6 +80,16 @@ const BlogEditDetail = (props) => {
     }
   }
 
+  const handleDeletePost = async () => {
+    if (window.confirm('Are you sure you want to delete this property?')) {//change to a better UI confirm
+        try {
+            await deletePost(postId);
+        } catch (error) {
+            console.error(error)
+        }
+    }
+};
+
   return (
     <div className='blog-edit-detail'>
       
@@ -135,7 +145,7 @@ const BlogEditDetail = (props) => {
         <Button label='Save' />
       </form>
       
-      <Button onClick={() => deletePost(postId)} label='Delete' />
+      <Button onClick={() => handleDeletePost()} label='Delete' />
       {isSaved && <Message message='Data saved successfully'  />}
       {isDeleted && <Message message='Post deleted successfully'  />}
       {isError && <Message message='An error occurred' />} 

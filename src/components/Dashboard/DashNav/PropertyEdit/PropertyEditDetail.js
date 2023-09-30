@@ -13,7 +13,6 @@ const PropertyEditDetail = (props) => {
 
     //get property data and images files
     useEffect(() => {
-
         
         console.log(imagePreviews);
         console.log(selectedFiles);
@@ -202,7 +201,7 @@ const PropertyEditDetail = (props) => {
     }
 
     const handleDeleteProperty = async () => {
-        if (window.confirm('Are you sure you want to delet this property?')) {//change to a better UI confirm
+        if (window.confirm('Are you sure you want to delete this property?')) {//change to a better UI confirm
             try {
                 await deleteProperty(props.property);
             } catch (error) {
