@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import Home from '../../pages/Home.js';
 import Blog from '../../pages/Blog';
@@ -7,17 +7,35 @@ import logo from '../../assets/logo.jpg';
 import logoBackground from '../../assets/logo-background.jpg';
 import PropertyPage from '../../pages/PropertyPage/PropertyPage';
 import BlogDetailPage from '../../pages/BlogDetailPage/BlogDetailPage';
-import {FiMenu} from 'react-icons/fi'
-import {IoClose} from 'react-icons/io5'
+import { FiMenu } from 'react-icons/fi'
+import { IoClose } from 'react-icons/io5'
 import './Header.css'
 
 const Header = () => {
     const [posts, setPosts] = useState([]);
     const [properties, setProperties] = useState([]);
+    const [scrolling, setScrolling] = useState(false);
     const [isNavVisible, setNavVisibility] = useState(false);
     const toggleNavVisibility = () => {
         setNavVisibility(!isNavVisible);
     };
+
+    const handleScroll = () => {
+        const scrollTop = window.scrollY;
+
+        if (scrollTop > 100) {
+            setScrolling(true);
+        } else {
+            setScrolling(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     useState(() => {
         fetch('http://localhost:3001/posts')
@@ -36,7 +54,7 @@ const Header = () => {
         <div>
 
             {/* header */}
-            <header className='page-header'>
+            <header className={`page-header ${scrolling ? 'scrolling' : ''}`} >
                 <div className='logo-container'>
                     <img className='nav-logo' src={logo} alt='Bicheno Accommodation Business Logo' />
                 </div>
@@ -61,23 +79,25 @@ const Header = () => {
                 <img className='home-background-image' src={logoBackground} alt="logoBackground" />
             </div>
 
-            {/* phone screen nav and toggle */}
-            <div className={isNavVisible ? 'nav-phone-screen' : 'nav-phone-screen hidden'}>
-                <ul >
-                    <li><NavLink className='phone-screen-link' onClick={toggleNavVisibility} to='/'>Home</NavLink></li>
-                    <li><NavLink className='phone-screen-link' onClick={toggleNavVisibility} to='/public/blog'>Blog</NavLink></li>
-                    <li><NavLink className='phone-screen-link' onClick={toggleNavVisibility} to='/public/accommodation'>Accommodation</NavLink></li>
-                    <li><a
-                        onClick={toggleNavVisibility}
-                        className='phone-screen-link'
-                        href='https://bookings8.rmscloud.com/Search/Index/f1e238f9670c6dcf/1/'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                    >Booking</a></li>
-                </ul>
+            {/* ------ phone screen nav and toggle ------ */}
+            <div className='nav-phone-screen-container'>
+                <div className={isNavVisible ? 'nav-phone-screen' : 'nav-phone-screen hidden'}>
+                    <ul>
+                        <li><NavLink className='phone-screen-link' onClick={toggleNavVisibility} to='/'>Home</NavLink></li>
+                        <li><NavLink className='phone-screen-link' onClick={toggleNavVisibility} to='/public/blog'>Blog</NavLink></li>
+                        <li><NavLink className='phone-screen-link' onClick={toggleNavVisibility} to='/public/accommodation'>Accommodation</NavLink></li>
+                        <li><a
+                            onClick={toggleNavVisibility}
+                            className='phone-screen-link'
+                            href='https://bookings8.rmscloud.com/Search/Index/f1e238f9670c6dcf/1/'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >Booking</a></li>
+                    </ul>
+                </div>
             </div>
             <div className='menu-phone-screen'>
-                <div className='menu-toggle-button' onClick={toggleNavVisibility}>{isNavVisible ?  <IoClose />:<FiMenu /> } </div>
+                <div className='menu-toggle-button' onClick={toggleNavVisibility}>{isNavVisible ? <IoClose /> : <FiMenu />} </div>
             </div>
 
             {/* route */}

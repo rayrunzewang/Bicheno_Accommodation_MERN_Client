@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 import { GoDot, GoDotFill } from 'react-icons/go';
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import { getPdfComponentContent } from './PdfComponent';
 import './PropertyPage.css';
 

@@ -12,6 +12,15 @@
   left: 0px;
   padding-inline: 0 5%;
   z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.page-header.scrolling {
+  height: 30px;
+}
+
+.page-header.scrolling .nav-logo {
+  display: none;
 }
 
 .page-header .logo-container {
@@ -116,25 +125,37 @@ nav {
     display: none;
   }
 
-/* ------ Small Screen Menu layout ------ */
+  /* ------ Small Screen Menu layout ------ */
+  .nav-phone-screen-container {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    overflow: hidden;
+  }
+
   .nav-phone-screen {
-    background-color: rgba(70, 70, 70, 0.8);
+    background-color: rgba(70, 70, 70, 0.9);
     display: block;
     width: 250px;
     height: fit-content;
-    position: absolute;
     left: auto;
-    top: 60px;
-    right: 0;
     z-index: 1;
     margin: 5px;
     border-radius: 10px;
     padding: 20px;
     border: 1px solid var(--primary-color);
+    transition: all 0.4s ease;
+    opacity: 0.5;
   }
 
   .nav-phone-screen.hidden {
-    display: none;
+    transform: translateX(110%);
+    opacity: 0.2;
+  }
+
+  .nav-phone-screen:not(.hidden) {
+    opacity: 1;
+    transform: translateX(0%);
   }
 
   .nav-phone-screen .phone-screen-link {
@@ -168,8 +189,8 @@ nav {
     color: var(--primary-color);
   }
 
-   /* ------ small screen imgBG layout ------ */
-   .image-background-phone-screen {
+  /* ------ small screen imgBG layout ------ */
+  .image-background-phone-screen {
     display: block;
   }
 }
