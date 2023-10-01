@@ -7,7 +7,6 @@ import DirectionsCarOutlinedIcon from '@mui/icons-material/DirectionsCarOutlined
 
 const AccommodationCard = ({ property }) => {
   return (
-
     <Link className='accommodation-page-card' to={`/public/${property._id}`}>
 
       {/* ------ Card ------ */}

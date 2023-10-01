@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-
 import PrivateHeader from '../PrivateHeader/PrivateHeader'
 import Login from '../Login/Login';
 import Dashboard from '../Dashboard/Dashboard';

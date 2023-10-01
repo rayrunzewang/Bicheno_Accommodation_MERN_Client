@@ -41,11 +41,8 @@ const PdfComponent = (props) => {
                     {/* TODO: fetching business email, address, contact */}
 
                 </div>
-
                 <pre className='pdf-page-description'>{property.description}</pre>
                 <p className='pdf-page-disclaimer'><strong>Disclaimer:</strong> All information contained therein is gathered from relevant third parties sources. We cannot guarantee or give any warranty about the information provided. Interested parties must rely solely on their own enquiries.</p>
-
-
         </div>
     );
 };

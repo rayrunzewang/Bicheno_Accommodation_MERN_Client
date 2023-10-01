@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Bicheno Accommodation Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Bicheno Accommodation website project. 
 
-## Available Scripts
+This is the frontend of a real Tasmanian Holiday houses rental business. The website is built using the MERN stack, with the frontend developed using React.js and CSS.
 
-In the project directory, you can run:
+## Technology Stack
 
-### `npm start`
+Frontend: React.js and CSS for building the user interface.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Backend: Node.js and Express.js for handling backend logic.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Database: MongoDB for storing property information and blog content.
 
-### `npm test`
+## Key Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Staff Login
+The website allows staff to log in and manage (create, delete, update) the blog, property, and other content on this website.
 
-### `npm run build`
+### Property Image Management
+While managing property content, the website enables staff to upload images by dragging and dropping, preview images before uploading, and rearrange them through drag-and-drop to determine the display order. The website will also optimize the file size of uploaded images to conserve backend storage space.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Property Photo Carousel
+Property photos are showcased using a carousel.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Inquiry Form
+The homepage offers an inquiry form that allows visitors to easily send email inquiries.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### PDF Generation and Download
+Users can have the website generate and download a PDF brochure for a specific property by clicking a button on each property page.
 
-### `npm run eject`
+### Responsive Design
+Single Page Application (SPA) with a responsive layout to provide an excellent user experience on various screen sizes.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Video Background Landing Page
+The features landing page a Bicheno scenic video background to enhance the business's image and engage users.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Other Tools or Technologies used in FrontEnd
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### jspdf
+Used for generating and downloading PDF brochures.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### axios
+Employed for making HTTP requests.
 
-## Learn More
+### useContext
+Used for state management and context sharing in React applications.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Other Tools or Technologies used in BackEnd
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### passport
+Used for authentication and authorization.
 
-### Code Splitting
+### bcrypt
+Employed for password hashing and security.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### cookie
+Utilized for storing login state.
 
-### Analyzing the Bundle Size
+### session
+Employed for managing user sessions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### SendGrid
+Utilized for sending emails.
 
-### Making a Progressive Web App
+### sharp
+Used for image processing and manipulation.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### path
+Utilized for handling file paths.
 
-### Advanced Configuration
+### File
+A general reference to file handling in the context of your project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### multer
+Used for handling file uploads.
 
-### Deployment
+### RESTful API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+

@@ -106,7 +106,9 @@ const PropertyPage = (props) => {
     //         console.error('Error:', error);
     //     }
     // };
-
+    if(!property) {
+        return <div>Data Loading...</div>
+    }
     return (
         <>
             <Link className='back-button' to='/public/accommodation'>Back To Accommodations</Link>

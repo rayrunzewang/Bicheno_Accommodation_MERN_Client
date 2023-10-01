@@ -50,6 +50,7 @@ const Header = () => {
             .then(data => setProperties(data))
             .catch(error => console.error('Properties Fetch Error:', error))
     }, []);
+    
     return (
         <div>
             {/* header */}
