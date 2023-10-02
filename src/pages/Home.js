@@ -7,7 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import WcRoundedIcon from '@mui/icons-material/WcRounded';
 import DirectionsCarOutlinedIcon from '@mui/icons-material/DirectionsCarOutlined';
-import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { GoDot, GoDotFill } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import './Home.css';
