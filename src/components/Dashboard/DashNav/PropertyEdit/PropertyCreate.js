@@ -145,6 +145,7 @@ function PropertiesEdit() {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
+        credentials: 'include',
       })
       .then((response) => {
         if (response.status === 200 || response.status === 201) {

@@ -49,6 +49,7 @@ const BlogEditDetail = (props) => {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify(formDataToSubmit),
       });
       console.log(formData);

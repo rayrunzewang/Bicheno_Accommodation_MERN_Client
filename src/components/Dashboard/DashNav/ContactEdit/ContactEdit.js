@@ -77,6 +77,7 @@ const ContactEdit = () => {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify(formDataToSubmit),
       });
 

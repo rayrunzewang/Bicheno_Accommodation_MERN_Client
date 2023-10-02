@@ -15,7 +15,7 @@ const PropertyEditDetail = (props) => {
 
     /* ------ get property data and images files ------ */
     useEffect(() => {
-        axios.get(`${BASE_URL}/property/${props.property}`)
+        axios.get(`${BASE_URL}/property/${props.property}`, { credentials: 'include' })
             .then(response => {
                 if (response.data && response.data.document) {
                     setProperty(response.data.document);
