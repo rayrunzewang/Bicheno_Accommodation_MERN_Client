@@ -5,7 +5,10 @@ import Message from '../../../Message/Message';
 import './PropertyCreate.css';
 
 function PropertiesEdit() {
-  const [selectedFiles, setSelectedFiles] = useState([]);  //selectedFiles is used to store the files selected by the user.
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+  
+  /* ------ selectedFiles is used to store the files selected by the user. ------ */
+  const [selectedFiles, setSelectedFiles] = useState([]);  
   const [title, setTitle] = useState('');
   const [address, setAddress] = useState('');
   const [description, setDescription] = useState('');
@@ -13,7 +16,7 @@ function PropertiesEdit() {
   const [bed, setBed] = useState('');
   const [toliet, setToliet] = useState('');
   const [carspace, setCarSpace] = useState('');
-  const [message, setMessage] = useState('');  //message is used to show success or failure message
+  const [message, setMessage] = useState('');  
   const [isSaved, setIsSaved] = useState(false);
   const [isError, setIsError] = useState(false);
   const [imagePreviews, setImagePreviews] = useState([]);
@@ -56,7 +59,6 @@ function PropertiesEdit() {
       reader.readAsDataURL(file);
     });
   };
-
 
   /* This handleDelete function is used to update selectedFiles and imagePreviews after clicking to delete a specific image. */
   const handleDelete = (index) => {
@@ -139,7 +141,7 @@ function PropertiesEdit() {
     formData.append('images', JSON.stringify(imageFiles));
 
     axios
-      .post('http://localhost:3001/property', formData, {
+      .post(`${BASE_URL}/property`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

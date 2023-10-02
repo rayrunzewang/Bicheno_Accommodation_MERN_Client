@@ -9,9 +9,9 @@ import BlogEdit from './DashNav/BlogEdit/BlogEdit';
 import PropertyEdit from './DashNav/PropertyEdit/PropertyEdit';
 import './Dashboard.css';
 
-const API_BASE = 'http://localhost:3001';
-
 const Dashboard = () => {
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const { setUser } = useUser();
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const Dashboard = () => {
 
     // ------ Navigate back to the login page ------
     navigate('/private/login');
-    fetch(API_BASE + '/logout', { method: 'POST', credentials: 'include' })
+    fetch(BASE_URL + '/logout', { method: 'POST', credentials: 'include' })
       .then(response => {
         if (response.ok) {
           console.log('Logout Successfully');
@@ -39,7 +39,6 @@ const Dashboard = () => {
 
   return (
     <>
-
       <div className='dashboard'>
         <button className='logout-btn' onClick={handleLogout}>LOGOUT</button>
         <DashNav />
@@ -54,7 +53,6 @@ const Dashboard = () => {
           <Route path='/propertyedit/*' element={<PropertyEdit />} ></Route>
         </Routes>
       </div>
-      
     </>
   )
 }

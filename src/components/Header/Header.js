@@ -12,6 +12,7 @@ import { IoClose } from 'react-icons/io5'
 import './Header.css'
 
 const Header = () => {
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
     const [posts, setPosts] = useState([]);
     const [properties, setProperties] = useState([]);
     const [scrolling, setScrolling] = useState(false);
@@ -38,14 +39,14 @@ const Header = () => {
     }, []);
 
     useState(() => {
-        fetch('http://localhost:3001/posts')
+        fetch(`${BASE_URL}/posts`)
             .then(res => res.json())
             .then(data => setPosts(data))
             .catch(error => console.error('Blog Posts Fetch Error:', error))
     }, []);
 
     useState(() => {
-        fetch('http://localhost:3001/property')
+        fetch(`${BASE_URL}/property`)
             .then(res => res.json())
             .then(data => setProperties(data))
             .catch(error => console.error('Properties Fetch Error:', error))

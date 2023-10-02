@@ -7,8 +7,10 @@ const BlogDetailPage = (props) => {
     const postId = props.postId;
 
     useEffect(() => {
+        const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
         console.log(postId);
-        fetch(`http://localhost:3001/posts/${postId}`)
+        fetch(`${BASE_URL}/posts/${postId}`)
             .then(res => res.json())
             .then(data => setPost(data))
             .catch(err => console.error('Fetch Blog Post Error', err))

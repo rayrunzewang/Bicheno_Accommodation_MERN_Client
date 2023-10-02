@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './AccommodationCard.css'
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import WcRoundedIcon from '@mui/icons-material/WcRounded';
 import DirectionsCarOutlinedIcon from '@mui/icons-material/DirectionsCarOutlined';
+import './AccommodationCard.css'
 
 const AccommodationCard = ({ property }) => {
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
   return (
     <Link className='accommodation-page-card' to={`/public/${property._id}`}>
 
       {/* ------ Card ------ */}
       <div key={property._id}>
         <div className='accommodation-page-image-wrap'>
-          <img className='accommodation-page-card-image' src={`http://localhost:3001/${property.images[0].image_url.replace(/\\/g, '/')}`} alt={property.title} />
+          <img className='accommodation-page-card-image' src={`${BASE_URL}/${property.images[0].image_url.replace(/\\/g, '/')}`} alt={property.title} />
         </div>
         <div className='accommodation-page-card-text'>
           <h3 className='accommodation-page-card-textline accommodation-page-card-title'>{property.title}</h3>

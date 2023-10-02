@@ -4,6 +4,8 @@ import logoImage from '../../assets/logo.jpg'
 import './PdfComponent.css'
 
 const PdfComponent = (props) => {
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
     const property = props.property;
     return (
         <div className='pdf-page'>
@@ -19,7 +21,7 @@ const PdfComponent = (props) => {
                         {property.images.map((image, index) => (
                             <div className='image-item-container' key={index}>
                                 <img
-                                    src={`http://localhost:3001/${image.image_url.replace(/\\/g, '/')}`}
+                                    src={`${BASE_URL}/${image.image_url.replace(/\\/g, '/')}`}
                                     alt={`${image.image_name}`}
                                     className='image-item'
                                 />

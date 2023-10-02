@@ -3,6 +3,7 @@ import Button from '../../../Button/Button';
 import Message from '../../../Message/Message';
 
 const BlogCreate = () => {
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   const [isSaved, setIsSaved] = useState(false);
   const [isError, setIsError] = useState(false); 
@@ -24,7 +25,7 @@ const BlogCreate = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3001/posts', {
+      const response = await fetch(`${BASE_URL}/posts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -98,11 +99,11 @@ const BlogCreate = () => {
                 required
               ></textarea>
           </div>
+          {isError && <p className='fail-message'>An error occurred, please try again latter</p>} 
           <Button type='submit' label='Create New' />
         </form>
         {isSaved && <Message message='Uploaded successfully . Please click OK to refresh the page. 
 ' /> }
-        {isError && <Message message='An error occurred' />} 
       </div>
   )
 }

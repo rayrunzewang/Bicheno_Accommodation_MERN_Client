@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import './Blog.css';
 
 function Blog() {
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
     const [posts, setPosts] = useState([]);
 
     useState(() => {
-        fetch('http://localhost:3001/posts')
+        fetch(`${BASE_URL}/posts`)
             .then(res => res.json())
             .then(data => setPosts(data))
             .catch(error => console.error('Blog Posts Fetch Error:', error))

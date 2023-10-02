@@ -7,6 +7,7 @@ import { getPdfComponentContent } from './PdfComponent';
 import './PropertyPage.css';
 
 const PropertyPage = (props) => {
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
     const property = props.property;
 
@@ -73,7 +74,7 @@ const PropertyPage = (props) => {
 
     // const handleDownloadBrochure = async (data) => {
     //     try {
-    //         const response = await fetch('http://localhost:3001/generate-pdf', {
+    //         const response = await fetch(`${BASE_URL}/generate-pdf`, {
     //             method: 'POST',
     //             headers: {
     //                 'Content-Type': 'application/json'
@@ -118,7 +119,7 @@ const PropertyPage = (props) => {
 
                 <div className='property-detial-image-container'>
                     <div
-                        style={{ backgroundImage: `url(http://localhost:3001/${slides[currentIndex].image_url.replace(/\\/g, '/')})` }}
+                        style={{ backgroundImage: `url(${BASE_URL}/${slides[currentIndex].image_url.replace(/\\/g, '/')})` }}
                         className='property-detail-image'>
                     </div>
                     <div

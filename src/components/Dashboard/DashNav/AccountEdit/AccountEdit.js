@@ -4,6 +4,7 @@ import Message from '../../../Message/Message';
 import './AccountEdit.css'
 
 const AccountEdit = () => {
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   const username = 'username';
   const [oldPassword, setOldPassword] = useState('');
@@ -42,7 +43,7 @@ const AccountEdit = () => {
     }
 
     try {      
-      const response = await fetch('http://localhost:3001/change-password', {
+      const response = await fetch(`${BASE_URL}/change-password`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

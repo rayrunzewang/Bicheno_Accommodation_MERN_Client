@@ -3,9 +3,11 @@ import AccommodationCard from '../components/AccommodationCard/AccommodationCard
 import './Accommodation.css'
 
 function Accommodation() {
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
     const [properties, setProperties] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3001/property')
+        fetch(`${BASE_URL}/property`)
             .then(res => res.json())
             .then(data => setProperties(data))
             .catch(error => console.error('Properties Fetch Error:', error))

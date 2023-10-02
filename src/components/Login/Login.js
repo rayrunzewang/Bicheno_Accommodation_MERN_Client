@@ -3,9 +3,8 @@ import { useUser } from '../../UserContext';
 import { useNavigate } from 'react-router-dom'; 
 import './Login.css';
 
-const API_BASE = 'http://localhost:3001';
-
 function Login() {
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { setUser } = useUser();
@@ -13,7 +12,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(`${API_BASE}/login`, {
+      const response = await fetch(`${BASE_URL}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

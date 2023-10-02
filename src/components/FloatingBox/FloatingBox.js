@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './FloatingBox.css';
 
 const FloatingBox = () => {
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
   const [contact, setContact] = useState({});
 
   useEffect(() => {
@@ -9,7 +10,7 @@ const FloatingBox = () => {
   }, [])
 
   const GetContact = () => {
-    fetch('http://localhost:3001/contact', { credentials: 'include' })
+    fetch(`${BASE_URL}/contact`, { credentials: 'include' })
         .then(res => res.json())
         .then(data => setContact(data))
         .catch(err => console.error('Error: ', err),)

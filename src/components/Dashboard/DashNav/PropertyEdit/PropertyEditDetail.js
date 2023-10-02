@@ -5,33 +5,34 @@ import Message from '../../../Message/Message';
 import './PropertyEditDetail.css';
 
 const PropertyEditDetail = (props) => {
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
     const [property, setProperty] = useState(null);
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [imagePreviews, setImagePreviews] = useState([]);
     const [successMessage, setSuccessMessage] = useState(false);
     const [failMessage, setFailMessage] = useState(false);
 
-    //get property data and images files
+    /* ------ get property data and images files ------ */
     useEffect(() => {
-        
-        console.log(imagePreviews);
-        console.log(selectedFiles);
-
-        axios.get(`http://localhost:3001/property/${props.property}`)
+        axios.get(`${BASE_URL}/property/${props.property}`)
             .then(response => {
                 if (response.data && response.data.document) {
                     setProperty(response.data.document);
                     const imageUrls = response.data.document.images.map(image => image.image_url);
-                    const promises = imageUrls.map(url => getImageDataAsBase64(`http://localhost:3001/${url}`));//Get image files
-                    Promise.all(promises)//Need to wait for multiple asynchronous operations to complete before performing some actions.
+                    /* ------ Get image files ------ */
+                    const promises = imageUrls.map(url => getImageDataAsBase64(`${BASE_URL}/${url}`));
+                    /* ------ Need to wait for multiple asynchronous operations to complete before performing some actions. ------ */
+                    Promise.all(promises)
                         .then(base64Images => {
-                            //Convert base64Images to file objects
+                            /* ------ Convert base64Images to file objects ------ */
                             const files = base64Images.map((base64, index) => {
                                 const blob = dataURItoBlob(base64);
                                 return new File([blob], `image${index}.jpg`, { type: 'image/jpeg' });
                             });
 
-                            setImagePreviews([...base64Images]);//update selectedFiles
+                            /* ------ update selectedFiles ------ */
+                            setImagePreviews([...base64Images]);
                             setSelectedFiles([...files]);
                         })
                         .catch(error => console.error('Error converting images to base64:', error));
@@ -42,7 +43,7 @@ const PropertyEditDetail = (props) => {
             .catch(error => console.error(error));
     }, [props.property]);
 
-    //Helper function to convert data to Blob
+    /* ------ Helper function to convert data to Blob ------ */
     const dataURItoBlob = (dataURI) => {
         const byteString = atob(dataURI.split(',')[1]);
         const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
@@ -164,7 +165,7 @@ const PropertyEditDetail = (props) => {
         formData.append('link', property.link);
 
         axios
-            .put(`http://localhost:3001/property/${props.property}`, formData, {
+            .put(`${BASE_URL}/property/${props.property}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -179,12 +180,11 @@ const PropertyEditDetail = (props) => {
                 setSuccessMessage(false)
                 setFailMessage(true);
             });
-
     };
 
     const deleteProperty = async (propertyId) => {
         try {
-            const res = await fetch(`http://localhost:3001/property/${propertyId}`, {
+            const res = await fetch(`${BASE_URL}/property/${propertyId}`, {
                 method: 'DELETE',
                 credential: 'include'
             })
@@ -201,7 +201,8 @@ const PropertyEditDetail = (props) => {
     }
 
     const handleDeleteProperty = async () => {
-        if (window.confirm('Are you sure you want to delete this property?')) {//change to a better UI confirm
+        if (window.confirm('Are you sure you want to delete this property?')) {
+            /* ------TODO: change to a better UI confirm ------ */
             try {
                 await deleteProperty(props.property);
             } catch (error) {
@@ -216,64 +217,63 @@ const PropertyEditDetail = (props) => {
 
     return (
 
-            <div className='property-edit-container'>
-                <form className='property-edit-form' onSubmit={handleUpdate}>
-                    <h1>Property Update</h1>
+        <div className='property-edit-container'>
+            <form className='property-edit-form' onSubmit={handleUpdate}>
+                <h1>Property Update</h1>
+                <div>
                     <div>
-                        <div>
-                            <input className='property-edit-title' id='property-edit-title' type="text" placeholder='Title (required*)' value={property.title} required onChange={(e) => setProperty({ ...property, title: e.target.value })} />
-                        </div>
-                        <div className='property-edit-facilities'>
-                                <label className='required-input' htmlFor="property-edit-bed">bed</label>
-                                <input className='property-edit-bed' id='property-edit-bed' type='number' min='0' value={property.bed} required onChange={(e) => setProperty({ ...property, bed: e.target.value })} />
-                                <label className='required-input' htmlFor="property-edit-toliet">toliet</label>
-                                <input className='property-edit-toliet' id='property-edit-toliet' type='number' min='0' value={property.toliet} required onChange={(e) => setProperty({ ...property, toliet: e.target.value })} />
-                                <label className='required-input' htmlFor="property-edit-carspace">car space</label>
-                                <input className='property-edit-carspace' id='property-edit-carspace' type='number' min='0' value={property.carspace} required onChange={(e) => setProperty({ ...property, carspace: e.target.value })} />
-                        </div>
-                        <div>
-                            <input className='property-edit-address' id='property-edit-address' type="text" placeholder='Address (required*)' value={property.address} required onChange={(e) => setProperty({ ...property, address: e.target.value })} />
-                        </div>
-                        <div>
-                            <textarea className='property-edit-link' id='property-edit-link' type="text" placeholder='Booking Link (required*)' value={property.link} cols="30" rows="10" required onChange={(e) => setProperty({ ...property, link: e.target.value })} />
-                        </div>
-                        <div>
-                            <textarea className='property-edit-description' id='property-edit-description' type="text" placeholder='Description (required*)' value={property.description} cols="30" rows="10" required onChange={(e) => setProperty({ ...property, description: e.target.value })} />
-                        </div>
-                        
-                        <div className='images-edit-upload-area'
-                            onDrop={handleDrop}
-                            onDragOver={(e) => e.preventDefault()}
-                        >
-                            <p className='placeholder-text'>Drop images here</p>
-                        </div>
-                        <p className='images-edit-selected-area-description'>
-                            Sort the images below before uplodaing, with the cover image placed at the first position.</p>
-                        <div className='images-edit-selected-area'>
-                            {selectedFiles.map((file, index) => (
-                                <div
-                                    key={index}
-                                    className='image-edit-div'
-                                    draggable
-                                    onDragStart={(e) => handleImageDragStart(e, index)}
-                                    onDragOver={(e) => e.preventDefault()}
-                                    onDrop={(e) => handleImageDrop(e, index)}
-                                >
-                                    <img className='images-edit-selected-image' src={imagePreviews[index]} alt={file.name} />
-                                    <button type='button' className='images-edit-selected-image-delete' onClick={() => handleDelete(index)} >
-                                        &times;
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
+                        <input className='property-edit-title' id='property-edit-title' type="text" placeholder='Title (required*)' value={property.title} required onChange={(e) => setProperty({ ...property, title: e.target.value })} />
                     </div>
-                    <Button label='Save' />
-                </form>
-                <Button onClick={handleDeleteProperty} label='Delete' />
-                {successMessage && <Message message={'Updated successfully, click Ok to reload the page'} />}
-                {failMessage && <Message message={'Updated failed, an error occurred'} />}
-            </div>
+                    <div className='property-edit-facilities'>
+                        <label className='required-input' htmlFor="property-edit-bed">bed</label>
+                        <input className='property-edit-bed' id='property-edit-bed' type='number' min='0' value={property.bed} required onChange={(e) => setProperty({ ...property, bed: e.target.value })} />
+                        <label className='required-input' htmlFor="property-edit-toliet">toliet</label>
+                        <input className='property-edit-toliet' id='property-edit-toliet' type='number' min='0' value={property.toliet} required onChange={(e) => setProperty({ ...property, toliet: e.target.value })} />
+                        <label className='required-input' htmlFor="property-edit-carspace">car space</label>
+                        <input className='property-edit-carspace' id='property-edit-carspace' type='number' min='0' value={property.carspace} required onChange={(e) => setProperty({ ...property, carspace: e.target.value })} />
+                    </div>
+                    <div>
+                        <input className='property-edit-address' id='property-edit-address' type="text" placeholder='Address (required*)' value={property.address} required onChange={(e) => setProperty({ ...property, address: e.target.value })} />
+                    </div>
+                    <div>
+                        <textarea className='property-edit-link' id='property-edit-link' type="text" placeholder='Booking Link (required*)' value={property.link} cols="30" rows="10" required onChange={(e) => setProperty({ ...property, link: e.target.value })} />
+                    </div>
+                    <div>
+                        <textarea className='property-edit-description' id='property-edit-description' type="text" placeholder='Description (required*)' value={property.description} cols="30" rows="10" required onChange={(e) => setProperty({ ...property, description: e.target.value })} />
+                    </div>
 
+                    <div className='images-edit-upload-area'
+                        onDrop={handleDrop}
+                        onDragOver={(e) => e.preventDefault()}
+                    >
+                        <p className='placeholder-text'>Drop images here</p>
+                    </div>
+                    <p className='images-edit-selected-area-description'>
+                        Sort the images below before uplodaing, with the cover image placed at the first position.</p>
+                    <div className='images-edit-selected-area'>
+                        {selectedFiles.map((file, index) => (
+                            <div
+                                key={index}
+                                className='image-edit-div'
+                                draggable
+                                onDragStart={(e) => handleImageDragStart(e, index)}
+                                onDragOver={(e) => e.preventDefault()}
+                                onDrop={(e) => handleImageDrop(e, index)}
+                            >
+                                <img className='images-edit-selected-image' src={imagePreviews[index]} alt={file.name} />
+                                <button type='button' className='images-edit-selected-image-delete' onClick={() => handleDelete(index)} >
+                                    &times;
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <Button label='Save' />
+            </form>
+            <Button onClick={handleDeleteProperty} label='Delete' />
+            {successMessage && <Message message={'Updated successfully, click Ok to reload the page'} />}
+            {failMessage && <Message message={'Updated failed, an error occurred'} />}
+        </div>
     )
 };
 

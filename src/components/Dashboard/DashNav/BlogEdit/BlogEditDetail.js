@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import './BlogEditDetail.css';
-import './BlogCreate.css';
 import Button from '../../../Button/Button';
 import Message from '../../../Message/Message';
+import './BlogEditDetail.css';
+import './BlogCreate.css';
 
 const BlogEditDetail = (props) => {
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   const [posts, setPosts] = useState([]);
   const [isSaved, setIsSaved] = useState(false);
@@ -18,7 +19,7 @@ const BlogEditDetail = (props) => {
   const postId = props.postId
 
   useEffect(() => {
-    fetch(`http://localhost:3001/posts/${postId}`)
+    fetch(`${BASE_URL}/posts/${postId}`)
       .then(res => res.json())
       .then(data => setPosts(data))
       .catch(error => console.error('Error:', error));
@@ -32,6 +33,7 @@ const BlogEditDetail = (props) => {
     });
   };
 
+    /* ------ Submit Form ------ */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -42,7 +44,7 @@ const BlogEditDetail = (props) => {
     };
 
     try {
-      const response = await fetch(`http://localhost:3001/posts/${posts._id}`, {
+      const response = await fetch(`${BASE_URL}/posts/${posts._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -64,9 +66,10 @@ const BlogEditDetail = (props) => {
     }
   };
 
+  /* ------ delete blog post ------ */
   const deletePost = async (postId, prevPosts, setPosts) => {
     try {
-      const res = await fetch(`http://localhost:3001/posts/${postId}`, {
+      const res = await fetch(`${BASE_URL}/posts/${postId}`, {
         method: 'DELETE',
         credentials: 'include'
       })
@@ -94,7 +97,6 @@ const BlogEditDetail = (props) => {
     <div className='blog-edit-detail'>
       
       {/* ------ Blog Edit Form ------ */}
-      
       <form className='blog-edit-detail-form' onSubmit={handleSubmit}>
         <div>
           <label className='required-input' htmlFor="title">title: </label>
@@ -144,11 +146,13 @@ const BlogEditDetail = (props) => {
 
         <Button label='Save' />
       </form>
-      
+      {isError && <p className='fail-message'>An error occurred, please try again latter</p>} 
+
       <Button onClick={() => handleDeletePost()} label='Delete' />
+
+      {/* Prompt Messages */}
       {isSaved && <Message message='Data saved successfully'  />}
       {isDeleted && <Message message='Post deleted successfully'  />}
-      {isError && <Message message='An error occurred' />} 
     </div>
   )
 }

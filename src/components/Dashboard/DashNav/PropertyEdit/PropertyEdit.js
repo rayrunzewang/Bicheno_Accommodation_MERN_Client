@@ -5,10 +5,12 @@ import PropertyCreate from './PropertyCreate';
 import './PropertyEdit.css';
 
 const PropertyEdit = () => {
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/property')
+    fetch(`${BASE_URL}/property`)
       .then(res => res.json())
       .then(data => setProperties(data))
       .catch(error => console.error('error:', error));
@@ -23,7 +25,6 @@ const PropertyEdit = () => {
             <ul>
 
               {/* ------ Prevent errors when the array is empty. ------ */}
-
               {Array.isArray(properties) && properties.length > 0 ? (
                 properties.map(property => (
                   <li className='property-edit-post' key={property._id}>
@@ -42,7 +43,6 @@ const PropertyEdit = () => {
           <Route path={`/`} element={<PropertyCreate />} />
 
           {/* ------ Prevent errors when the array is empty. ------ */}
-
           {Array.isArray(properties) && properties.length > 0 && properties.map(property => (
             <Route
               key={property._id}
@@ -50,7 +50,6 @@ const PropertyEdit = () => {
               element={<PropertyEditDetail property={property._id} />}
             />
           ))}
-
         </Routes>
       </div>
 

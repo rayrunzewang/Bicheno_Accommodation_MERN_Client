@@ -5,12 +5,12 @@ import BlogCreate from './BlogCreate';
 import './BlogEdit.css';
 
 const BlogEdit = () => {
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
   
   {/* ------ fetching Post List ------ */}
-
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:3001/posts')
+    fetch(`${BASE_URL}/posts`)
       .then(res => res.json())
       .then(data => setPosts(data))
       .catch(error => console.error('An error occurred while retrieving the list of blog articles.:', error));
@@ -37,7 +37,6 @@ const BlogEdit = () => {
       </div>
 
               {/* ------ Blog Edit Page Component ------ */}
-
       <Routes>
         <Route path={`/`} element={<BlogCreate />} />
         {posts.map(post => {
@@ -48,7 +47,6 @@ const BlogEdit = () => {
           />
         })}
       </Routes>
-
     </div>
   )
 }

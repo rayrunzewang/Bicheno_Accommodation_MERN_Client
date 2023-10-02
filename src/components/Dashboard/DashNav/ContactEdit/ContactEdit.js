@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './ContactEdit.css'
 import Button from '../../../Button/Button';
 import Message from '../../../Message/Message';
+import './ContactEdit.css'
 
 const ContactEdit = () => {
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const [contact, setContact] = useState({
     phoneNumber: '',
     alternativePhoneNumber: '',
@@ -23,16 +25,22 @@ const ContactEdit = () => {
     facebookURL: '',
     instagramURL: '',
   });
-
   const [isSaved, setIsSaved] = useState(false);
+  const [emailError, setEmailError] = useState('');
+
   const navigate = useNavigate();
 
   useEffect(() => {
     GetContact();
   }, [])
 
+  const isValidEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return regex.test(email);
+  };
+
   const GetContact = () => {
-    fetch('http://localhost:3001/contact', { credentials: 'include' })
+    fetch(`${BASE_URL}/contact`, { credentials: 'include' })
       .then(res => res.json())
       .then(data => setContact(data))
       .catch(err => console.error('Error: ', err),)
@@ -49,6 +57,11 @@ const ContactEdit = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!isValidEmail(formData.email || contact.email)) {
+      setEmailError('Invalid email format');
+      return;
+    }
+
     const formDataToSubmit = {
       phoneNumber: formData.phoneNumber || contact.phoneNumber,
       alternativePhoneNumber: formData.alternativePhoneNumber || contact.alternativePhoneNumber,
@@ -59,7 +72,7 @@ const ContactEdit = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3001/contact', {
+      const response = await fetch(`${BASE_URL}/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,11 +84,11 @@ const ContactEdit = () => {
         setIsSaved(true);
         setIsError(false);
       } else {
-        setIsError(false);
+        setIsError(true);
         console.error('Failed to submit data');
       }
     } catch (error) {
-      setIsError(false);
+      setIsError(true);
       console.error('Error:', error);
     }
   };
@@ -136,7 +149,7 @@ const ContactEdit = () => {
           />
         </div>
         <div>
-          <label  className='required-input' htmlFor='facebookURL'>facebookURL:</label>
+          <label  className='required-input' htmlFor='facebookURL'>FacebookURL:</label>
         </div>
         <div>
           <input
@@ -149,7 +162,7 @@ const ContactEdit = () => {
           />
         </div>
         <div>
-          <label  className='required-input' htmlFor='instagramURL'>instagramURL:</label>
+          <label  className='required-input' htmlFor='instagramURL'>InstagramURL:</label>
         </div>
         <div>
           <input
@@ -161,9 +174,10 @@ const ContactEdit = () => {
             required
           />
         </div>
+        {emailError && <p className="fail-message">{emailError}</p>}
+        {isError && <p className='fail-message'> An Error happened</p> }
         <Button type='submit' label='Save' />
         {isSaved && <Message message='Data saved successfully' />}
-        {isError && <Message message='An error occurred' />}
       </form>
     </div>
 

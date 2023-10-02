@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 
 function Home() {
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
     const [contact, setContact] = useState({});
     const [properties, setProperties] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -38,14 +40,14 @@ function Home() {
 
     /* ------ Fetch contact information ------ */
     const getContact = () => {
-        fetch('http://localhost:3001/contact', { credentials: 'include' })
+        fetch(`${BASE_URL}/contact`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => setContact(data))
             .catch(err => console.error('Error', err))
     }
 
     const getProperties = () => {
-        fetch('http://localhost:3001/property')
+        fetch(`${BASE_URL}/property`)
             .then(res => res.json())
             .then(data => {
                 setProperties(data);
@@ -80,7 +82,7 @@ function Home() {
     /* ------ Send email using data from the form ------ */
     const sendEmail = async (data) => {
         try {
-            const response = await fetch('http://localhost:3001/send-email', {
+            const response = await fetch(`${BASE_URL}/send-email`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -166,7 +168,7 @@ function Home() {
                         {slides && slides.length > 0 &&
                             <Link className='home-carousel-image-link' to={`/public/${slides[currentIndex]._id}`} >
                                 <div
-                                    style={{ backgroundImage: `url(http://localhost:3001/${slides[currentIndex].images[0].image_url.replace(/\\/g, '/')})` }}
+                                    style={{ backgroundImage: `url(${BASE_URL}/${slides[currentIndex].images[0].image_url.replace(/\\/g, '/')})` }}
                                     className='home-carousel-image'>
                                 </div>
                             </Link>
